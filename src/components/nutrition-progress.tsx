@@ -1,0 +1,8 @@
+import Link from "next/link";
+import { displayNumber } from "@/lib/nutrition-input";
+import type { Totals } from "@/lib/nutrition-trends";
+type Goals = { goalsConfirmed: boolean; calorieTargetCenti: number; proteinTargetCenti: number; carbohydrateTargetCenti: number; fatTargetCenti: number };
+export function NutritionProgress({ totals, goals }: { totals: Totals; goals: Goals }) {
+  const nutrients = [{ name: "Kalorije", value: totals.calories, target: goals.calorieTargetCenti, unit: "kcal" }, { name: "Bjelančevine", value: totals.protein, target: goals.proteinTargetCenti, unit: "g" }, { name: "Ugljikohidrati", value: totals.carbs, target: goals.carbohydrateTargetCenti, unit: "g" }, { name: "Masti", value: totals.fat, target: goals.fatTargetCenti, unit: "g" }];
+  return <><div className="nutrition-goals">{nutrients.map(item => <div className="goal-item" key={item.name}><div className="goal-heading"><span>{item.name}</span><strong>{displayNumber(item.value / 100)} {item.unit}</strong></div>{goals.goalsConfirmed && item.target > 0 ? <><progress value={item.value} max={item.target} aria-label={`${item.name}: ${displayNumber(item.value / 100)} od ${displayNumber(item.target / 100)} ${item.unit}`}/><small>Cilj {displayNumber(item.target / 100)} {item.unit} · {displayNumber(item.value / item.target * 100, 1)} %</small></> : <small>{goals.goalsConfirmed ? "Cilj nije postavljen" : "Cilj još nije potvrđen"}</small>}</div>)}</div>{!goals.goalsConfirmed && <p className="notice mt-5"><Link href="/postavke">Postavi i potvrdi vlastite ciljeve u Postavkama.</Link> Početne vrijednosti nisu osobna preporuka.</p>}</>;
+}

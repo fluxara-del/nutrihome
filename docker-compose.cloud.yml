@@ -1,0 +1,19 @@
+# Optional cloud build overlay: inherit the existing managed proxy and CA.
+# Proxy values are not stored in this file or Docker image ENV.
+services:
+  app:
+    build:
+      args:
+        - HTTP_PROXY
+        - HTTPS_PROXY
+        - NO_PROXY
+        - http_proxy
+        - https_proxy
+        - no_proxy
+      extra_hosts:
+        - "proxy:${NUTRIHOME_PROXY_IP:?Resolve the managed proxy host IP before building}"
+      secrets:
+        - proxy_ca
+secrets:
+  proxy_ca:
+    file: ${NODE_EXTRA_CA_CERTS:?Set the path to the managed proxy CA file}

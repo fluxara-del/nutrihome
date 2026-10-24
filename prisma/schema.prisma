@@ -1,0 +1,331 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum Unit {
+  G
+  KG
+  ML
+  L
+  PIECE
+}
+
+enum StorageLocation {
+  FRIDGE
+  FREEZER
+  PANTRY
+}
+
+enum PlanStatus {
+  DRAFT
+  APPROVED
+}
+
+enum MealType {
+  BREAKFAST
+  LUNCH
+  DINNER
+  SNACK
+}
+
+enum FoodState {
+  RAW
+  COOKED
+}
+
+model Household {
+  id           String @id @default(cuid())
+  name         String
+  createdAt    DateTime @default(now())
+  users        User[]
+  products     FoodProduct[]
+  batches      InventoryBatch[]
+  transactions InventoryTransaction[]
+  recipes      Recipe[]
+  plans        MealPlan[]
+  inventoryOperations InventoryOperation[]
+}
+
+model User {
+  id           String @id @default(cuid())
+  householdId  String
+  household    Household @relation(fields: [householdId], references: [id], onDelete: Restrict)
+  username     String @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  sessions     Session[]
+  settings     UserSettings?
+  foodLogs     FoodLog[]
+  weightLogs   WeightLog[]
+  inventoryOperations InventoryOperation[]
+  nutritionRequests NutritionRequest[]
+  @@index([householdId])
+}
+
+model Session {
+  id        String @id @default(cuid())
+  tokenHash String @unique
+  userId    String
+  user      User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model LoginThrottle {
+  key         String @id
+  attempts    Int @default(0)
+  windowStartMs BigInt
+}
+
+model FoodProduct {
+  id                       String @id @default(cuid())
+  householdId              String
+  household                Household @relation(fields: [householdId], references: [id], onDelete: Restrict)
+  name                     String
+  brand                    String?
+  barcode                  String?
+  category                 String
+  caloriesPer100gCenti      Int
+  proteinPer100gCenti       Int
+  carbsPer100gCenti         Int
+  fatPer100gCenti           Int
+  fiberPer100gCenti         Int @default(0)
+  nutritionState           FoodState @default(RAW)
+  defaultUnit              Unit @default(G)
+  densityMgPerMl           Int?
+  pieceWeightMg            Int?
+  lowStockThresholdMg      Int @default(0)
+  estimatedNutrition       Boolean @default(false)
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+  batches                  InventoryBatch[]
+  transactions             InventoryTransaction[]
+  ingredients              RecipeIngredient[]
+  logs                     FoodLog[]
+  shoppingItems            ShoppingListItem[]
+  inventoryOperations      InventoryOperation[]
+  @@unique([householdId, barcode])
+  @@index([householdId, name])
+  @@index([householdId, category])
+}
+
+model InventoryBatch {
+  id              String @id @default(cuid())
+  householdId     String
+  household       Household @relation(fields: [householdId], references: [id], onDelete: Restrict)
+  productId       String
+  product         FoodProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  quantityMg      Int
+  version         Int @default(0)
+  unit            Unit @default(G)
+  storageLocation StorageLocation
+  expirationDate  String?
+  purchaseDate    String?
+  purchasePriceCents Int?
+  createdAt       DateTime @default(now())
+  transactions    InventoryTransaction[]
+  @@index([householdId, expirationDate])
+  @@index([productId, expirationDate])
+}
+
+model InventoryTransaction {
+  id               String @id @default(cuid())
+  householdId      String
+  household        Household @relation(fields: [householdId], references: [id], onDelete: Restrict)
+  productId        String
+  product          FoodProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  batchId          String
+  batch            InventoryBatch @relation(fields: [batchId], references: [id], onDelete: Restrict)
+  operationId      String?
+  operation        InventoryOperation? @relation(fields: [operationId], references: [id], onDelete: Restrict)
+  quantityChangeMg Int
+  reason           String
+  // Each operation/batch pair has its own stable idempotency key.
+  sourceReference  String
+  timestamp        DateTime @default(now())
+  @@unique([householdId, sourceReference])
+  @@index([operationId])
+  @@index([batchId, timestamp])
+  @@index([householdId, timestamp])
+}
+
+model Recipe {
+  id                  String @id @default(cuid())
+  householdId         String
+  household           Household @relation(fields: [householdId], references: [id], onDelete: Restrict)
+  title               String
+  instructions        String
+  servingsMilli       Int
+  preparationMinutes  Int
+  cookingMinutes      Int
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  ingredients         RecipeIngredient[]
+  tags                RecipeTag[]
+  plannedMeals        PlannedMeal[]
+  logs                FoodLog[]
+  @@index([householdId, title])
+}
+
+model RecipeIngredient {
+  id         String @id @default(cuid())
+  recipeId   String
+  recipe     Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  productId  String
+  product    FoodProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  quantityMg Int
+  @@unique([recipeId, productId])
+  @@index([productId])
+}
+
+model RecipeTag {
+  recipeId String
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  tag      String
+  @@id([recipeId, tag])
+  @@index([tag])
+}
+
+model MealPlan {
+  id                 String @id @default(cuid())
+  householdId        String
+  household          Household @relation(fields: [householdId], references: [id], onDelete: Restrict)
+  weekStart          String
+  status             PlanStatus @default(DRAFT)
+  targetCaloriesCenti Int
+  targetProteinCenti Int
+  createdAt          DateTime @default(now())
+  meals              PlannedMeal[]
+  shoppingItems      ShoppingListItem[]
+  @@unique([householdId, weekStart])
+}
+
+model PlannedMeal {
+  id          String @id @default(cuid())
+  mealPlanId  String
+  mealPlan    MealPlan @relation(fields: [mealPlanId], references: [id], onDelete: Cascade)
+  date        String
+  mealType    MealType
+  recipeId    String
+  recipe      Recipe @relation(fields: [recipeId], references: [id], onDelete: Restrict)
+  servingsMilli Int
+  confirmedAt DateTime?
+  @@unique([mealPlanId, date, mealType])
+  @@index([recipeId])
+}
+
+model FoodLog {
+  id                      String @id @default(cuid())
+  userId                  String
+  user                    User @relation(fields: [userId], references: [id], onDelete: Restrict)
+  date                    String
+  productId               String?
+  product                 FoodProduct? @relation(fields: [productId], references: [id], onDelete: Restrict)
+  recipeId                String?
+  recipe                  Recipe? @relation(fields: [recipeId], references: [id], onDelete: Restrict)
+  // mg for product; milli-servings for recipe. CHECK requires exactly one source.
+  quantityMilli           Int
+  version                 Int @default(0)
+  sourceName              String?
+  nutritionSnapshot       String?
+  enteredQuantity         String?
+  enteredUnit             String?
+  yieldMilli              Int?
+  inventoryDeducted        Boolean @default(false)
+  calculatedFiberCenti    Int?
+  foodState               FoodState @default(RAW)
+  estimatedNutrition      Boolean @default(false)
+  calculatedCaloriesCenti Int
+  calculatedProteinCenti  Int
+  calculatedCarbsCenti    Int
+  calculatedFatCenti      Int
+  createdAt               DateTime @default(now())
+  @@index([userId, date])
+  @@index([productId])
+  @@index([recipeId])
+}
+
+model WeightLog {
+  id        String @id @default(cuid())
+  userId    String
+  user      User @relation(fields: [userId], references: [id], onDelete: Restrict)
+  date      String
+  weightG   Int
+  version   Int @default(0)
+  @@unique([userId, date])
+}
+
+model ShoppingListItem {
+  id                  String @id @default(cuid())
+  mealPlanId          String
+  mealPlan            MealPlan @relation(fields: [mealPlanId], references: [id], onDelete: Cascade)
+  productId           String
+  product             FoodProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  requiredQuantityMg  Int
+  availableQuantityMg Int
+  missingQuantityMg   Int
+  purchased           Boolean @default(false)
+  manual              Boolean @default(false)
+  estimatedPriceCents Int?
+  priceIsEstimate     Boolean @default(true)
+  @@unique([mealPlanId, productId])
+  @@index([productId])
+}
+
+model UserSettings {
+  id                     String @id @default(cuid())
+  userId                 String @unique
+  user                   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // Defaults are placeholders for user review, not medical recommendations.
+  calorieTargetCenti     Int @default(200000)
+  proteinTargetCenti     Int @default(10000)
+  fatTargetCenti         Int @default(7000)
+  carbohydrateTargetCenti Int @default(25000)
+  dietaryPreferences     String @default("[]")
+  excludedIngredients    String @default("[]")
+  mealCount              Int @default(3)
+  weeklyBudgetCents      Int?
+  timezone               String @default("Europe/Zagreb")
+  goalsConfirmed         Boolean @default(false)
+  version                Int @default(0)
+}
+
+model InventoryOperation {
+  id          String @id @default(cuid())
+  householdId String
+  household   Household @relation(fields: [householdId], references: [id], onDelete: Restrict)
+  userId      String
+  user        User @relation(fields: [userId], references: [id], onDelete: Restrict)
+  productId   String
+  product     FoodProduct @relation(fields: [productId], references: [id], onDelete: Restrict)
+  requestKey  String
+  requestHash String
+  kind        String
+  summary     String
+  detail      String
+  createdAt   DateTime @default(now())
+  transactions InventoryTransaction[]
+  @@unique([householdId, requestKey])
+  @@index([householdId, createdAt])
+  @@index([productId, createdAt])
+  @@index([userId])
+}
+
+model NutritionRequest {
+  id          String @id @default(cuid())
+  userId      String
+  user        User @relation(fields: [userId], references: [id], onDelete: Restrict)
+  requestKey  String
+  requestHash String
+  kind        String
+  targetId    String
+  createdAt   DateTime @default(now())
+  @@unique([userId, requestKey])
+  @@index([userId, createdAt])
+}

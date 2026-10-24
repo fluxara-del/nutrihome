@@ -1,0 +1,31 @@
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+data/
+backups/
+playwright-report/
+test-results/
+*.tsbuildinfo
+coverage/
+next-env.d.ts
+
+# Runtime databases and SQLite sidecars, wherever they are created.
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Local credentials, private keys and credential stores.
+.secrets/
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+.npmrc

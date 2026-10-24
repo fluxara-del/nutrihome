@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    image: nutrihome:local
+    restart: unless-stopped
+    init: true
+    environment:
+      DATABASE_URL: file:/app/data/nutrihome.db
+      APP_URL: ${APP_URL:-http://localhost:3000}
+      TZ: Europe/Zagreb
+    ports:
+      - "127.0.0.1:${NUTRIHOME_PORT:-3000}:3000"
+    volumes:
+      - nutrihome-data:/app/data
+      - nutrihome-backups:/app/backups
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    stop_grace_period: 30s
+
+volumes:
+  nutrihome-data:
+  nutrihome-backups:
