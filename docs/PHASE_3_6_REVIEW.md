@@ -68,3 +68,7 @@ Referentne akcije otvaraju postojeći obrazac **Provjeri podatke**. Nakon potvrd
 - Vizualni pregled desktop/mobile i light/dark te regresija kamere/OCR-a u pregledniku **još nisu potvrđeni**. Postojeći browser testovi su sačuvani i prilagođeni novoj opciji vanjskih izvora.
 
 GitHub Actions već ima Linux i Windows poslove s buildom/E2E te Linux Docker smokeom. Njihovi stvarni rezultati moraju se pregledati prije spajanja. Faza 3.6 se **ne proglašava potpuno potvrđenom** dok build, browser testovi i Docker smoke ne prođu. Faza 4 nije započeta.
+
+## Naknadna GitHub CI provjera
+
+[Run 40142385409](https://github.com/fluxara-del/nutrihome/actions/runs/40142385409) na commitu `3464bbb8e67d9cdff3627fbd8360bd13ff1ad921` potvrđuje unit/integration testove, produkcijski build, TypeScript i browser E2E na **Linuxu i Windowsu**. Time su lokalna sandbox ograničenja builda/browsera razriješena provjerom u standardnim CI okruženjima; lokalni neuspjesi gore ostaju evidentirani. Docker smoke je u vrijeme ovog zapisa još u tijeku. Dopunjeni smoke dodatno provjerava stvarnih 4.748 zapisa i pretragu banane bez vanjskih poziva prije i nakon rekreiranja kontejnera. Završni CI na dopunama treba još potvrditi.

@@ -23,6 +23,6 @@ test("real bundled banana offline: reviewed catalog then confirmed 120 g diary e
  const log=await client.foodLog.findFirstOrThrow({where:{userId:user.id,sourceName:"Banana, sirova"}});expect(log.quantityMilli).toBe(120000);expect(log.calculatedCaloriesCenti).toBe(10680);expect(log.calculatedProteinCenti).toBe(131);
  expect(external).toEqual([]);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.screenshot({path:"test-results/reference-banana-mobile.png",fullPage:true});
- await page.setViewportSize({width:1440,height:1000});await page.goto("/postavke/baza-namirnica");await expect(page.getByText("4748",{exact:true})).toBeVisible();await page.emulateMedia({colorScheme:"dark"});await page.screenshot({path:"test-results/reference-settings-dark.png",fullPage:true});
+ await page.setViewportSize({width:1440,height:1000});await page.goto("/postavke/baza-namirnica");await expect(page.getByText("4748",{exact:true})).toBeVisible();await page.getByRole("button",{name:"Uključi tamnu temu",exact:true}).click();await expect(page.locator("html")).toHaveAttribute("data-theme","dark");await page.screenshot({path:"test-results/reference-settings-dark.png",fullPage:true});
  }finally{await client.$disconnect();}
 });

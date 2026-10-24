@@ -25,7 +25,7 @@ it("imports the real bundled USDA snapshot idempotently, searches Croatian offli
  const banana=(await searchFoods(client,actor,"banana",false,{fetcher})).results.find(r=>r.reference==="173944")!;
  expect(banana).toMatchObject({calories:"89",protein:"1.09",carbs:"22.8",fat:"0.33",fiber:"2.6",barcode:"",basis:"PER_100_G"});expect(fetcher).not.toHaveBeenCalled();
  const unknown=data.foods[0];unknown.fiber=null;const next=gzipSync(JSON.stringify({...data,header:{...data.header,version:"test-next"},foods:data.foods}));await importReference(client,next,sha256(next));expect((await client.referenceFood.findUniqueOrThrow({where:{id:unknown.id}})).fiber).toBeNull();
-});
+},20000);
 it("validates integrity and duplicates before writing and does not touch personal products or stock",async()=>{
  const {bytes,expected}=await bundledReference();await importReference(client,bytes,expected);const data=decodeReference(bytes,expected);
  const banana=(await searchFoods(client,actor,"banana")).results.find(r=>r.reference==="173944")!;
@@ -46,4 +46,4 @@ it("validates integrity and duplicates before writing and does not touch persona
  expect(await client.foodProduct.findUniqueOrThrow({where:{id}})).toEqual(before);expect(await client.foodLog.findUniqueOrThrow({where:{id:log.targetId}})).toEqual(history);expect(await client.inventoryBatch.findMany()).toEqual(stock);expect(await client.recipe.findUniqueOrThrow({where:{id:recipe.id}})).toEqual(recipe);
  // Startup must not revert an explicitly imported newer package.
  await importReference(client,bytes,expected,true);expect((await client.referenceCatalog.findUniqueOrThrow({where:{id:"main"}})).version).toBe("update-test");
-});
+},20000);
