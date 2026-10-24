@@ -22,7 +22,7 @@ export async function saveProduct(client: PrismaClient, actor: InventoryActor, r
     if (id) {
       const current = await tx.foodProduct.findFirst({ where: { id, householdId: actor.householdId } });
       if (current && current.nutritionState !== data.nutritionState && await tx.inventoryBatch.count({ where: { productId: id, quantityMg: { gt: 0 } } })) throw new InventoryError("Sirovo/kuhano ne može se mijenjati dok proizvod ima zalihu. Koristite zaseban proizvod za drugo stanje.");
-      const changed = await tx.foodProduct.updateMany({ where: { id, householdId: actor.householdId }, data });
+      const changed = await tx.foodProduct.updateMany({ where: { id, householdId: actor.householdId }, data: { ...data, nutritionSource: "MANUAL", sourceReference: null, sourceNutritionBasis: "PER_100_G", fiberKnown: true } });
       if (changed.count !== 1) throw new InventoryError("Proizvod nije pronađen.");
       return id;
     }

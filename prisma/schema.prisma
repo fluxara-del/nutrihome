@@ -63,6 +63,7 @@ model User {
   weightLogs   WeightLog[]
   inventoryOperations InventoryOperation[]
   nutritionRequests NutritionRequest[]
+  catalogRequests CatalogRequest[]
   @@index([householdId])
 }
 
@@ -102,6 +103,12 @@ model FoodProduct {
   pieceWeightMg            Int?
   lowStockThresholdMg      Int @default(0)
   estimatedNutrition       Boolean @default(false)
+  nutritionSource          String @default("MANUAL")
+  sourceReference          String?
+  sourceNutritionBasis     String @default("PER_100_G")
+  fiberKnown               Boolean @default(true)
+  packageQuantityMilli     Int?
+  packageUnit              Unit?
   createdAt                DateTime @default(now())
   updatedAt                DateTime @updatedAt
   batches                  InventoryBatch[]
@@ -328,4 +335,15 @@ model NutritionRequest {
   createdAt   DateTime @default(now())
   @@unique([userId, requestKey])
   @@index([userId, createdAt])
+}
+
+model CatalogRequest {
+  id          String @id @default(cuid())
+  userId      String
+  user        User @relation(fields: [userId], references: [id], onDelete: Restrict)
+  requestKey  String
+  requestHash String
+  productId   String
+  createdAt   DateTime @default(now())
+  @@unique([userId, requestKey])
 }

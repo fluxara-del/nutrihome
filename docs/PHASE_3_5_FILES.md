@@ -1,0 +1,48 @@
+# Faza 3.5 — promijenjene datoteke
+
+Popis prema početnom commitu faza 1–3 (`d9d5e6d`).
+
+- `.env.example`
+- `.github/workflows/ci.yml`
+- `README.md`
+- `docker-compose.yml`
+- `docs/CODEX_DEVELOPMENT.md`
+- `docs/PHASE_3_5_FILES.md`
+- `docs/PHASE_3_5_REVIEW.md`
+- `docs/PLAN.md`
+- `next.config.ts`
+- `package-lock.json`
+- `package.json`
+- `prisma/migrations/20261024030000_food_catalog/migration.sql`
+- `prisma/schema.prisma`
+- `scripts/docker-smoke.sh`
+- `scripts/ocr-smoke.ts`
+- `scripts/ocr-worker.cjs`
+- `scripts/test-e2e.mjs`
+- `src/app/(private)/dnevnik/page.tsx`
+- `src/app/(private)/namirnice/actions.ts`
+- `src/app/(private)/namirnice/catalog-explorer.tsx`
+- `src/app/(private)/namirnice/page.tsx`
+- `src/app/(private)/nutrition-forms.tsx`
+- `src/app/(private)/zalihe/[id]/page.tsx`
+- `src/app/(private)/zalihe/forms.tsx`
+- `src/app/(private)/zalihe/novo/page.tsx`
+- `src/app/api/food-search/route.ts`
+- `src/app/api/label-ocr/route.ts`
+- `src/app/globals.css`
+- `src/components/barcode-scanner.tsx`
+- `src/components/navigation.tsx`
+- `src/lib/catalog-limits.ts`
+- `src/lib/catalog.ts`
+- `src/lib/food-draft.ts`
+- `src/lib/food-providers.ts`
+- `src/lib/image-validation.ts`
+- `src/lib/inventory.ts`
+- `src/lib/label-parser.ts`
+- `src/lib/local-ocr.ts`
+- `tests/catalog-migration.test.ts`
+- `tests/catalog.test.ts`
+- `tests/e2e/catalog.spec.ts`
+- `tests/fixtures/label-image.ts`
+- `tests/food-import.test.ts`
+- `tests/image-ocr.test.ts`

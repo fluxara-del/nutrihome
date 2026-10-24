@@ -8,6 +8,7 @@ services:
       DATABASE_URL: file:/app/data/nutrihome.db
       APP_URL: ${APP_URL:-http://localhost:3000}
       TZ: Europe/Zagreb
+      USDA_API_KEY: ${USDA_API_KEY:-}
     ports:
       - "127.0.0.1:${NUTRIHOME_PORT:-3000}:3000"
     volumes:

@@ -1,7 +1,7 @@
 # NutriHome
 
 Privatna aplikacija za prehranu, zalihe i planiranje obroka, na hrvatskom jeziku.
-**Trenutno: dovršene faze 1–3 — temelj, zalihe i osobni dnevnik.** Nije gotova produkcijska nutricionistička aplikacija.
+**Trenutno: faze 1–3.5 — temelj, zalihe, osobni dnevnik i baza namirnica.** Nije gotova produkcijska nutricionistička aplikacija.
 
 Dostupno u izvoru: relacijska shema i migracije, lokalni vlasnički račun, prijava i
 odjava sa serverskim sesijama, zaštićena navigacija, nadzorna ploča sa stvarnim
@@ -17,7 +17,13 @@ Dostupni su i osobni dnevnik hrane/porcija postojećih recepata, izmjena i brisa
 unosa, nutritivne kopije, sirovo/kuhano uz potvrđen omjer mase, zasebno potvrđena
 potrošnja zaliha, osobni ciljevi, težina te 7/30-dnevni pregled s pomičnim prosjekom.
 
-Stvaranje/uređivanje recepata, planer, kupnja, nedjeljni posao, uploadi i AI
+U **Bazi namirnica** dostupni su lokalna pretraga, Open Food Facts, opcionalni
+USDA, EAN/UPC kamera i ručni barkod te lokalni OCR fotografije etikete.
+Svi podaci prolaze uređivanje i potvrdu. Spremanje proizvoda ne mijenja zalihe ni
+dnevnik; njihove se količine potvrđuju zasebno. Fotografije se ne čuvaju trajno.
+Vrijednosti na 100 ml traže potvrđenu gustoću, a podaci po porciji poznatu veličinu.
+
+Stvaranje/uređivanje recepata, planer, kupnja, nedjeljni posao i AI
 **još nisu implementirani**. Stranice to izričito navode.
 Tablice i kalendarske pomoćne funkcije pripremaju kasnije faze; ne predstavljaju
 izvršene poslove ili dovršene funkcije.
@@ -49,7 +55,7 @@ Prisma preuzima potpisano/checksum-provjereno izvršno okruženje s `binaries.pr
 ako ga mrežna pravila blokiraju, dodati tu domenu u postavkama okruženja. Ne isključivati
 TLS ili provjeru kontrolnih suma.
 
-## Provjera faza 1–3
+## Provjera faza 1–3.5
 
 ```bash
 npm test
@@ -93,6 +99,7 @@ ponovljeni unos neće duplicirati seriju ili transakciju. Seed se ne pokreće au
 - [Razvoj i testiranje u Codex okruženju](docs/CODEX_DEVELOPMENT.md)
 - [Faza 2: korištenje zaliha i provjera](docs/PHASE_2_REVIEW.md)
 - [Faza 3: dnevnik, ciljevi, težina i provjera](docs/PHASE_3_REVIEW.md)
+- [Faza 3.5: izvori, OCR, kamera, Windows i ograničenja](docs/PHASE_3_5_REVIEW.md)
 - [ZimaOS instalacija i nadogradnja](docs/ZIMAOS.md)
 - [Privatni HTTPS preko Tailscalea](docs/TAILSCALE.md)
 - [Sigurnosna kopija i povrat](docs/BACKUP_RESTORE.md)

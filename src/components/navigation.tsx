@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Package, NotebookPen, CookingPot, CalendarDays, ShoppingBasket, ChartNoAxesCombined, Settings } from "lucide-react";
+import { LayoutDashboard, Package, NotebookPen, CookingPot, CalendarDays, ShoppingBasket, ChartNoAxesCombined, Settings, ScanBarcode } from "lucide-react";
 export const sections = [
   { href: "/", label: "Nadzorna ploča", icon: LayoutDashboard },
   { href: "/zalihe", label: "Zalihe", icon: Package },
+  { href: "/namirnice", label: "Baza namirnica", icon: ScanBarcode },
   { href: "/dnevnik", label: "Dnevnik prehrane", icon: NotebookPen },
   { href: "/recepti", label: "Recepti", icon: CookingPot },
   { href: "/plan", label: "Tjedni plan", icon: CalendarDays },

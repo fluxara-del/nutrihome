@@ -33,6 +33,7 @@ if (result.status !== 0) process.exit(1);
 JS
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/inventory-smoke.ts
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/nutrition-smoke.ts
+node --import tsx --input-type=module -e 'import { labelImage } from "./tests/fixtures/label-image.ts"; process.stdout.write(await labelImage());' | docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/ocr-smoke.ts
 docker compose -p "$project" exec -T app ./node_modules/.bin/tsx scripts/backup.ts /app/backups
 # Migrations can be safely re-applied; data survives container recreation.
 # SQLite migrations need exclusive access; stop the only app writer first.

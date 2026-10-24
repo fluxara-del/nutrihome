@@ -5,6 +5,10 @@ Izvorni kod nalazi se u privatnom repozitoriju
 U ovom okruženju radna mapa je `/workspace/nutrihome`.
 Push na GitHub sprema kod; ne objavljuje aplikaciju na internetu.
 
+Faza 3.5 isporučuje se zasebno na grani `phase-3-5-food-catalog` radi pregleda.
+Za tu verziju odaberi tu granu u Codex zadatku; `main` zadržava potvrđene faze 1–3
+dok se promjena ne spoji nakon pregleda.
+
 ## Automatska provjera
 
 U Codex zadatku odaberi ovaj repozitorij i zatraži pokretanje ovih naredbi.
