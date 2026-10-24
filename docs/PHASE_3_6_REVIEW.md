@@ -69,6 +69,20 @@ Referentne akcije otvaraju postojeći obrazac **Provjeri podatke**. Nakon potvrd
 
 GitHub Actions već ima Linux i Windows poslove s buildom/E2E te Linux Docker smokeom. Njihovi stvarni rezultati moraju se pregledati prije spajanja. Faza 3.6 se **ne proglašava potpuno potvrđenom** dok build, browser testovi i Docker smoke ne prođu. Faza 4 nije započeta.
 
-## Naknadna GitHub CI provjera
+## Potvrđene provjere izvan sandboxa
 
-[Run 40142385409](https://github.com/fluxara-del/nutrihome/actions/runs/40142385409) na commitu `3464bbb8e67d9cdff3627fbd8360bd13ff1ad921` potvrđuje unit/integration testove, produkcijski build, TypeScript i browser E2E na **Linuxu i Windowsu**. Time su lokalna sandbox ograničenja builda/browsera razriješena provjerom u standardnim CI okruženjima; lokalni neuspjesi gore ostaju evidentirani. Docker smoke je u vrijeme ovog zapisa još u tijeku. Dopunjeni smoke dodatno provjerava stvarnih 4.748 zapisa i pretragu banane bez vanjskih poziva prije i nakon rekreiranja kontejnera. Završni CI na dopunama treba još potvrditi.
+[CI 40142870746](https://github.com/fluxara-del/nutrihome/actions/runs/40142870746), commit `84d93ca0ce7474da76cf6bd51f0484da0ee41cff`:
+
+| Provjera | Linux | Windows |
+| --- | --- | --- |
+| Unit/integration | 109/109 prolazi | 109/109 prolazi |
+| Produkcijski build | Prolazi | Prolazi |
+| TypeScript | Prolazi | Prolazi |
+| Browser E2E | 16/16 prolazi | 16/16 prolazi |
+| Docker build i smoke | Prolazi | Nije primjenjivo, ZimaOS koristi Linux kontejnere |
+
+Docker smoke potvrđuje stvarnih 4.748 zapisa, nutritivne vrijednosti banane i očuvanje kataloga nakon rekreiranja kontejnera. Browser testovi uključuju stvarni OCR, ZXing kameru i novi scenarij banana → pregled/potvrda osobnog proizvoda → potvrđeni unos 120 g (106,8 kcal, 1,31 g proteina). Ručno su pregledane CI snimke mobilnog dnevnika u svijetloj temi i desktop administratorskog prikaza u tamnoj temi; nema vidljivog odsijecanja ili preklapanja. Snimke svih browser testova dostupne su u CI artefaktima `browser-results-Linux` i `browser-results-Windows`.
+
+Lokalne sandbox zabrane builda/browsera evidentirane gore razriješene su uspješnim provjerama na standardnim CI runnerima. Stvarni ZimaOS uređaj i fizička kamera mobitela nisu bili dostupni; potvrđeni su Linux Docker i browser video-fixture.
+
+Završni dodatak: [CI 40143438680](https://github.com/fluxara-del/nutrihome/actions/runs/40143438680), commit `ec4a0065166e634b017c4af5bdcf1efa17ecbe28`, dodaje stvarnu pretragu nad trajnim Docker volumenom u kontejneru s `--network none`, koristeći zadani kod pretrage bez simuliranog fetchera. **Prolazi**, zajedno sa svih 109 unit/integration i 16 browser testova, buildom i TypeScriptom na obje platforme. Potvrđeno je da banana iz stvarnog kataloga radi i u procesu koji nema pristup vanjskoj mreži. Faza 3.6 isporučena je i spremna za pregled; glavno ograničenje sadržaja ostaje devet hrvatskih naziva uz izvorne engleske nazive ostalih zapisa. Faza 4 nije započeta.
