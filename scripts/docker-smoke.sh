@@ -50,3 +50,8 @@ docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bi
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/nutrition-smoke.ts verify
 
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/reference-smoke.ts
+
+# A real process with no network interface searches the persisted bundled catalog.
+container_id="$(docker compose -p "$project" ps -q app)"
+image_id="$(docker inspect --format '{{.Image}}' "$container_id")"
+docker run --rm --network none --volumes-from "$container_id" -e DATABASE_URL=file:/app/data/nutrihome.db -e NUTRIHOME_SMOKE=1 "$image_id" ./node_modules/.bin/tsx scripts/reference-smoke.ts

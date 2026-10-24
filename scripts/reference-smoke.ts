@@ -10,10 +10,9 @@ async function main(){
   const user=await client.user.findUniqueOrThrow({where:{username:"smoke_owner"}});
   const state=await client.referenceCatalog.findUniqueOrThrow({where:{id:"main"}});
   assert.equal(state.count,4748);assert.equal(await client.referenceFood.count(),4748);
-  let calls=0;const fetcher:typeof fetch=async()=>{calls++;throw new Error("Internet unavailable");};
-  const result=await searchFoods(client,{userId:user.id,householdId:user.householdId},"banana",false,{fetcher});
+  const result=await searchFoods(client,{userId:user.id,householdId:user.householdId},"banana");
   const banana=result.results.find(r=>r.referenceId==="usda-sr-173944");
-  assert.ok(banana);assert.equal(banana.calories,"89");assert.equal(banana.protein,"1.09");assert.equal(banana.barcode,"");assert.equal(calls,0);
+  assert.ok(banana);assert.equal(banana.calories,"89");assert.equal(banana.protein,"1.09");assert.equal(banana.barcode,"");assert.equal(result.warnings.length,0);
   console.log("Docker bundled catalog: 4748 records, real banana values and no external calls passed.");
  }finally{await client.$disconnect();}
 }
