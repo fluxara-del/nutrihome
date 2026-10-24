@@ -14,3 +14,7 @@
 Svaka faza je zasebna pregledljiva isporuka s testovima i opisom nedovršenog rada.
 Veće promjene arhitekture zahtijevaju odobrenje prije implementacije.
 Početna shema priprema kasnije module; postojanje tablice ne znači gotovu funkciju.
+
+## Faza 3.6 — ugrađena referentna baza
+
+Implementirani su paket 4.748 USDA zapisa, zasebne tablice, lokalni uvoz sa SHA-256, pretraga s isključenim vanjskim izvorima, potvrđeni prijenos u osobni katalog i postavke baze. Unit/integration i TypeScript prolaze; build, browser E2E i Docker potvrda ostaju otvoreni zbog lokalnih ograničenja. Ne označavati fazu potpuno dovršenom prije tih provjera. Detalji: [PHASE_3_6_REVIEW.md](PHASE_3_6_REVIEW.md). Faza 4 nije u opsegu.

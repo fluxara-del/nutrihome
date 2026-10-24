@@ -7,12 +7,12 @@ export type FoodDraft = {
   servingQuantity: string; servingUnit: "G" | "ML";
   packageQuantity: string; packageUnit: "G" | "KG" | "ML" | "L";
   source: "MANUAL" | "LOCAL" | "OFF" | "USDA" | "OCR"; reference: string;
-  localId?: string; warnings: string[];
+  referenceId?: string; category?: string; preparation?: string; nameEn?: string; localId?: string; warnings: string[];
 };
 export function emptyDraft(source: FoodDraft["source"] = "MANUAL"): FoodDraft {
   return { name: "", brand: "", barcode: "", calories: "", protein: "", carbs: "", fat: "", fiber: "", basis: "UNKNOWN", servingQuantity: "", servingUnit: "G", packageQuantity: "", packageUnit: "G", source, reference: "", warnings: [] };
 }
-export const sourceLabels = { MANUAL: "Ručni unos", LOCAL: "Lokalni katalog", OFF: "Open Food Facts", USDA: "USDA FoodData Central", OCR: "Lokalni OCR" };
+export const sourceLabels = { MANUAL: "Ručni unos", LOCAL: "Moje namirnice", OFF: "Open Food Facts", USDA: "USDA FoodData Central", OCR: "Lokalni OCR" };
 export const basisLabels = { PER_100_G: "Na 100 g", PER_100_ML: "Na 100 ml", PER_SERVING: "Po porciji", UNKNOWN: "Osnova nije jasna — odaberi nakon provjere" };
 export function normalizeFoodName(value: string) { return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("hr-HR").replace(/đ/g, "d").trim().replace(/\s+/g, " "); }
 export function validBarcode(value: string) {

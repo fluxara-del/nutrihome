@@ -19,7 +19,7 @@ RUN --mount=type=secret,id=proxy_ca \
 RUN mkdir -p /runtime/.next /runtime/src \
     && cp -a .next/standalone/. /runtime/ \
     && cp -a .next/static /runtime/.next/ \
-    && cp -a public prisma prisma.config.ts scripts package.json /runtime/ \
+    && cp -a public prisma prisma.config.ts scripts package.json catalog /runtime/ \
     && cp -a src/lib /runtime/src/ \
     && rm -rf /runtime/node_modules \
     && cp -a node_modules /runtime/
@@ -32,4 +32,4 @@ COPY --from=builder --chown=node:node /runtime/ ./
 USER node
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 CMD node -e "fetch('http://127.0.0.1:3000/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"
-CMD ["sh", "-c", "./node_modules/.bin/tsx scripts/prepare-db.ts && ./node_modules/.bin/prisma migrate deploy && exec node server.js"]
+CMD ["sh", "-c", "./node_modules/.bin/tsx scripts/prepare-db.ts && ./node_modules/.bin/prisma migrate deploy && ./node_modules/.bin/tsx scripts/import-reference.ts --if-empty && exec node server.js"]

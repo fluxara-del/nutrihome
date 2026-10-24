@@ -27,7 +27,7 @@ export function reviewedProduct(raw: unknown) {
     if (!value) return "0"; // Only optional fiber reaches here; fiberKnown is stored separately.
     const centi = BigInt(checkedFixed(value, 2));
     const per100g = roundRatio(centi * (input.basis === "PER_SERVING" ? 100000n : 1n) * (volume ? 1000n : 1n), BigInt(input.basis === "PER_SERVING" ? serving : 1) * (volume ? BigInt(density) : 1n));
-    return String(per100g / 100);
+    return (per100g / 100).toFixed(2);
   }
   const data = productData(parse(productSchema, { name: input.name, brand: input.brand, barcode: input.barcode, category: input.category,
     calories: canonical(input.calories), protein: canonical(input.protein), carbs: canonical(input.carbs), fat: canonical(input.fat), fiber: canonical(input.fiber),

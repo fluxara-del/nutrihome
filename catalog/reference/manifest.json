@@ -1,0 +1,11 @@
+{
+  "format": 1,
+  "version": "usda-sr-2018-04-v1",
+  "builtAt": "2026-10-25T00:00:00.000Z",
+  "source": "USDA FoodData Central SR Legacy April 2018",
+  "sourceUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip",
+  "sourceSha256": "70d4235ae3a2bdf48a7b9eaa1286a83fa67b6f3270436c9ce8b008213f500129",
+  "license": "CC0-1.0",
+  "count": 4748,
+  "sha256": "e27375f393f44a560ce46b9bda553bbd69d9499b2edd8f1357649a8596923481"
+}

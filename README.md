@@ -107,3 +107,9 @@ ponovljeni unos neće duplicirati seriju ili transakciju. Seed se ne pokreće au
 
 Aplikacija ne daje medicinske preporuke. Početni ciljevi nisu potvrđeni korisnički
 ciljevi. AI ključ nije potreban za dostupne funkcije i nijedan zahtjev se ne šalje AI servisima.
+
+## Faza 3.6 — lokalna referentna baza
+
+Ugrađeni USDA SR Legacy katalog sadrži 4.748 zapisa i dolazi s aplikacijom. `npm run db:migrate` primjenjuje kontrolirane migracije i uvozi paket bez vanjskog API-ja. Pretraga koristi Moje namirnice → Ugrađenu bazu; Vanjski izvori su isključeni dok ih korisnik ne uključi. Podaci se pregledavaju i potvrđuju prije spremanja osobnog proizvoda, a dnevnik/zalihe imaju zasebnu potvrdu.
+
+Status, licenca i lokalno ažuriranje: **Postavke → Baza namirnica**. Postupak pripreme, ograničenja hrvatskih prijevoda, nutritivno mapiranje i stvarni rezultati provjera: [PHASE_3_6_REVIEW.md](docs/PHASE_3_6_REVIEW.md). Windows upute: [WINDOWS_11.md](docs/WINDOWS_11.md). Build/E2E/Docker još zahtijevaju potvrdu izvan ograničenog Windows sandboxa.
