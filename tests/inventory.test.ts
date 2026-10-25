@@ -36,7 +36,7 @@ describe("product catalogue", () => {
     expect((await client.inventoryBatch.findFirstOrThrow()).quantityMg).toBe(500000);
   });
   it("keeps barcodes unique within a household, not across households", async () => {
-    const input = { ...productInput(), barcode: "1234567890123" };
+    const input = { ...productInput(), barcode: "4006381333931" };
     await saveProduct(client, actor, input, productId);
     await expect(saveProduct(client, actor, input)).rejects.toMatchObject({ code: "P2002" });
     await expect(saveProduct(client, other, input)).resolves.toBeTruthy();
@@ -152,13 +152,13 @@ describe("scope and warnings", () => {
     expect((await client.inventoryBatch.findUniqueOrThrow({ where: { id: b.id } })).quantityMg).toBe(500000);
   });
   it("searches Croatian names and barcodes, filters alerts and locations using usable quantities", async () => {
-    await saveProduct(client, actor, { ...productInput(), barcode: "1234567890123", lowStock: "150" }, productId);
+    await saveProduct(client, actor, { ...productInput(), barcode: "4006381333931", lowStock: "150" }, productId);
     await stock("100", "2026-10-26", "FRIDGE"); await stock("500", "2026-10-23");
     const all = await listInventory(client, actor, { q: "zitarice" }, "2026-10-24");
     expect(all.rows).toHaveLength(0); // Search covers product, brand and barcode; category has its own filter.
     const result = await listInventory(client, actor, { q: "ZOBENE", category: "Žitarice", status: "low", location: "FRIDGE" }, "2026-10-24");
     expect(result.rows).toHaveLength(1); expect(result.rows[0]).toMatchObject({ usableMg: 100000, expiredMg: 500000, soon: 1, low: true });
-    expect((await listInventory(client, actor, { q: "1234567890123", status: "expired" }, "2026-10-24")).total).toBe(1);
+    expect((await listInventory(client, actor, { q: "4006381333931", status: "expired" }, "2026-10-24")).total).toBe(1);
     expect((await listInventory(client, actor, { location: "FREEZER" }, "2026-10-24")).total).toBe(0);
   });
   it("paginates catalogue and operation history deterministically", async () => {
@@ -180,4 +180,19 @@ it("upgrades phase 1 databases without losing existing stock or audit", () => {
     expect(raw.prepare("SELECT operationId,quantityChangeMg FROM InventoryTransaction").get()).toEqual({ operationId: null, quantityChangeMg: 12345 });
     expect(raw.pragma("foreign_key_check")).toEqual([]);
   } finally { raw.close(); }
+});
+
+it("QA regression: unknown fiber remains editable and is not recorded as a confirmed zero", async () => {
+  await client.foodProduct.update({where:{id:productId},data:{fiberKnown:false,fiberPer100gCenti:0,estimatedNutrition:true}});
+  await saveProduct(client,actor,{...productInput(),name:"Samo promjena naziva",fiber:"",estimatedNutrition:false},productId);
+  const product=await client.foodProduct.findUniqueOrThrow({where:{id:productId}});
+  expect(product.fiberKnown).toBe(false);expect(product.estimatedNutrition).toBe(true);
+});
+it("QA regression: inventory search handles Croatian đ without diacritics", async () => {
+  await saveProduct(client,actor,{...productInput(),name:"Đumbir"},productId);
+  expect((await listInventory(client,actor,{q:"dumbir"})).rows.map(row=>row.product.id)).toContain(productId);
+});
+
+it("QA regression: rejects an invalid manual barcode check digit", async () => {
+  await expect(saveProduct(client,actor,{...productInput(),barcode:"4006381333932"})).rejects.toThrow(/Barkod/);
 });

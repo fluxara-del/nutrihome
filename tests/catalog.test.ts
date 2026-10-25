@@ -56,20 +56,20 @@ it("scopes searches and writes to authenticated household members", async () => 
 it("keeps Croatian local results if both external services fail", async () => {
   await saveCatalogProduct(client, actor, input());
   const fetcher = vi.fn(async () => { throw new Error("secret upstream error must not escape"); });
-  const result = await searchFoods(client, actor, "COKOLADNE", false, { fetcher, usdaKey: "test-only-not-a-real-key" });
+  const result = await searchFoods(client, actor, "COKOLADNE", false, { fetcher, external: true, usdaKey: "test-only-not-a-real-key" });
   expect(result.results).toHaveLength(1); expect(result.results[0].source).toBe("LOCAL");
   expect(result.warnings).toHaveLength(2); expect(JSON.stringify(result)).not.toContain("secret upstream");
 });
 it("supports unknown barcode and performs no external calls for local-only search", async () => {
   const fetcher = vi.fn(async () => Response.json({ status: 0 }));
-  expect((await searchFoods(client, actor, "4006381333931", true, { fetcher })).results).toHaveLength(0);
+  expect((await searchFoods(client, actor, "4006381333931", true, { fetcher, external: true })).results).toHaveLength(0);
   await searchFoods(client, actor, "test", false, { fetcher, localOnly: true });
   expect(fetcher).toHaveBeenCalledTimes(1);
   await expect(searchFoods(client, actor, "4006381333932", true, { fetcher })).rejects.toThrow(/Barkod/);
 });
 it("sends only search data to fixed providers and keeps the USDA key out of results and URLs", async () => {
   const fetcher = vi.fn(async (url: Parameters<ProviderFetch>[0]) => String(url).includes("usda") ? Response.json({ foods: [{ fdcId: 5, description: "Apple", dataType: "Foundation", foodNutrients: [] }] }) : Response.json({ products: [] }));
-  const result = await searchFoods(client, actor, "jabuka", false, { fetcher, usdaKey: "test-only-not-a-real-key" });
+  const result = await searchFoods(client, actor, "jabuka", false, { fetcher, external: true, usdaKey: "test-only-not-a-real-key" });
   const call = fetcher.mock.calls.find(([url]) => String(url).includes("usda"))!;
   expect(String(call[0])).not.toContain("test-only");
   const init = (fetcher.mock.calls as unknown as [URL, RequestInit][]).find(([url]) => String(url).includes("usda"))![1];

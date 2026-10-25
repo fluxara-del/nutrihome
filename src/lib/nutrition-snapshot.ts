@@ -4,22 +4,22 @@ import type { Nutrients } from "./nutrition";
 import { numberFixed, NutritionError } from "./nutrition-input";
 export type ProductSnapshot = {
   kind: "product"; version: 1; sourceId: string; name: string; state: FoodState; estimated: boolean;
-  per100g: Nutrients; densityMgPerMl: number | null; pieceWeightMg: number | null;
+  fiberKnown?: boolean; per100g: Nutrients; densityMgPerMl: number | null; pieceWeightMg: number | null;
 };
 export type RecipeSnapshot = {
   kind: "recipe"; version: 1; sourceId: string; name: string; state: FoodState; estimated: boolean;
   servingsMilli: number; ingredients: { productId: string; quantityMg: number; product: ProductSnapshot }[];
 };
-export type LegacySnapshot = { kind: "legacy"; version: 1; sourceId: string; sourceType: "PRODUCT" | "RECIPE"; name: string; state: FoodState; estimated: true; quantityMilli: number; totals: Nutrients };
+export type LegacySnapshot = { kind: "legacy"; version: 1; sourceId: string; sourceType: "PRODUCT" | "RECIPE"; name: string; state: FoodState; estimated: true; fiberKnown?: boolean; quantityMilli: number; totals: Nutrients };
 export type NutritionSnapshot = ProductSnapshot | RecipeSnapshot | LegacySnapshot;
 export function productSnapshot(product: FoodProduct): ProductSnapshot {
-  return { kind: "product", version: 1, sourceId: product.id, name: product.name, state: product.nutritionState, estimated: product.estimatedNutrition,
+  return { kind: "product", version: 1, sourceId: product.id, name: product.name, state: product.nutritionState, estimated: product.estimatedNutrition || !product.fiberKnown, fiberKnown: product.fiberKnown,
     per100g: { calories: product.caloriesPer100gCenti, protein: product.proteinPer100gCenti, carbs: product.carbsPer100gCenti, fat: product.fatPer100gCenti, fiber: product.fiberPer100gCenti },
     densityMgPerMl: product.densityMgPerMl, pieceWeightMg: product.pieceWeightMg };
 }
 export function legacySnapshot(log: FoodLog, name: string): LegacySnapshot {
   return { kind: "legacy", version: 1, sourceId: log.productId ?? log.recipeId!, sourceType: log.productId ? "PRODUCT" : "RECIPE", name, state: log.foodState, estimated: true,
-    quantityMilli: log.quantityMilli, totals: { calories: log.calculatedCaloriesCenti, protein: log.calculatedProteinCenti, carbs: log.calculatedCarbsCenti, fat: log.calculatedFatCenti, fiber: log.calculatedFiberCenti ?? 0 } };
+    fiberKnown: log.calculatedFiberCenti !== null, quantityMilli: log.quantityMilli, totals: { calories: log.calculatedCaloriesCenti, protein: log.calculatedProteinCenti, carbs: log.calculatedCarbsCenti, fat: log.calculatedFatCenti, fiber: log.calculatedFiberCenti ?? 0 } };
 }
 const nutrientKeys = ["calories", "protein", "carbs", "fat", "fiber"] as const;
 export type CalculationInput = { quantity: string; unit: "G" | "KG" | "ML" | "L" | "PIECE" | "SERVING"; foodState: FoodState; yield: string; yieldConfirmed: boolean; estimated: boolean };
@@ -55,5 +55,6 @@ export function calculateSnapshot(snapshot: NutritionSnapshot, input: Calculatio
     try { totals[key] = roundRatio(value, divisor); } catch { throw new NutritionError("Unesena količina daje prevelik nutritivni rezultat."); }
   }
   const stocks = snapshot.kind === "product" ? [{ productId: snapshot.sourceId, quantityMg: roundRatio(BigInt(quantityMilli) * numerator, denominator) }] : snapshot.kind === "recipe" ? snapshot.ingredients.map(item => ({ productId: item.productId, quantityMg: roundRatio(BigInt(item.quantityMg) * BigInt(quantityMilli), BigInt(snapshot.servingsMilli)) })) : [];
-  return { totals, quantityMilli, foodState, yieldMilli, estimated: snapshot.estimated || input.estimated || yieldMilli !== null, stocks };
+  const fiberKnown = snapshot.kind === "recipe" ? snapshot.ingredients.every(item => item.product.fiberKnown !== false) : snapshot.fiberKnown !== false;
+  return { fiberKnown, totals, quantityMilli, foodState, yieldMilli, estimated: snapshot.estimated || input.estimated || yieldMilli !== null, stocks };
 }

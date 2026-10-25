@@ -1,7 +1,8 @@
-import type { FoodProduct, PrismaClient } from "@prisma/client";
+import { Prisma, type FoodProduct, type PrismaClient } from "@prisma/client";
 import { emptyDraft, normalizeFoodName, validBarcode, type FoodDraft } from "./food-draft";
 import type { InventoryActor } from "./inventory";
 import { InventoryError } from "./inventory-input";
+import { searchReference, referenceDraft } from "./reference-food";
 type Json = Record<string, unknown>;
 const object = (v: unknown): Json => v && typeof v === "object" && !Array.isArray(v) ? v as Json : {};
 const text = (v: unknown, max = 120) => typeof v === "string" ? v.trim().slice(0, max) : "";
@@ -76,15 +77,22 @@ async function json(url: URL, init: RequestInit, fetcher: ProviderFetch) {
   } finally { await reader.cancel().catch(() => {}); }
   return object(JSON.parse(Buffer.concat(chunks).toString("utf8")));
 }
-export async function searchFoods(client: PrismaClient, actor: InventoryActor, raw: string, barcode = false, options: { fetcher?: ProviderFetch; usdaKey?: string; localOnly?: boolean } = {}) {
+export async function searchFoods(client: PrismaClient, actor: InventoryActor, raw: string, barcode = false, options: { fetcher?: ProviderFetch; usdaKey?: string; localOnly?: boolean; external?: boolean; page?: number } = {}) {
   if (!await client.user.findFirst({ where: { id: actor.userId, householdId: actor.householdId }, select: { id: true } })) throw new InventoryError("Pristup nije dopušten.");
   const q = raw.trim();
   if (q.length < 2 || q.length > 100 || /[\x00-\x1f]/.test(q)) throw new InventoryError("Upiši naziv duljine 2–100 znakova.");
   if (barcode && !validBarcode(q)) throw new InventoryError("Barkod mora biti valjan EAN/UPC/GTIN s kontrolnom znamenkom.");
-  const local = await client.foodProduct.findMany({ where: { householdId: actor.householdId }, orderBy: { name: "asc" } });
-  const results = local.filter(p => barcode ? p.barcode === q : normalizeFoodName(`${p.name} ${p.brand ?? ""} ${p.barcode ?? ""}`).includes(normalizeFoodName(q))).slice(0, 30).map(localDraft);
+  const page = Math.min(499, Math.max(0, Math.trunc(options.page ?? 0) || 0));
+  // SQLite performs bounded paging. Explicit replacements also cover Croatian capitals.
+  const haystack = Prisma.sql`lower(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(name || ' ' || coalesce(brand,'') || ' ' || category || ' ' || coalesce(barcode,''), 'č','c'),'ć','c'),'š','s'),'ž','z'),'đ','d'),'Č','c'),'Ć','c'),'Š','s'),'Ž','z'),'Đ','d'))`;
+  const tokens = normalizeFoodName(q).split(/\s+/).slice(0,12);
+  const conditions = tokens.map(token=>Prisma.sql`instr(${haystack}, ${token}) > 0`);
+  const local = await client.$queryRaw<FoodProduct[]>(Prisma.sql`SELECT * FROM FoodProduct WHERE householdId = ${actor.householdId} AND ${barcode ? Prisma.sql`barcode = ${q}` : Prisma.join(conditions," AND ")} ORDER BY name, id LIMIT 21 OFFSET ${page*20}`);
+  const references = barcode ? [] : await searchReference(client,q,page);
+  const hasMore = local.length>20 || references.length>20;
+  const results = [...local.slice(0,20).map(localDraft),...references.slice(0,20).map(referenceDraft)];
   const warnings: string[] = [], fetcher = options.fetcher ?? fetch;
-  if (options.localOnly) return { results, warnings };
+  if (options.localOnly || !options.external || barcode && local.length > 0 || page > 0) return { results, warnings, hasMore };
   const key = options.usdaKey ?? process.env.USDA_API_KEY;
   await Promise.all([
     (async () => {
@@ -107,5 +115,5 @@ export async function searchFoods(client: PrismaClient, actor: InventoryActor, r
     })(),
   ]);
   if (!key) warnings.push("USDA nije konfiguriran; API ključ nije obavezan.");
-  return { results, warnings };
+  return { results, warnings, hasMore };
 }

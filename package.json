@@ -13,11 +13,14 @@
     "test": "vitest run",
     "test:e2e": "node scripts/test-e2e.mjs",
     "db:generate": "prisma generate",
-    "db:migrate": "tsx scripts/prepare-db.ts && prisma migrate deploy",
+    "db:migrate": "tsx scripts/prepare-db.ts && prisma migrate deploy && tsx scripts/import-reference.ts --if-empty",
     "db:seed": "tsx prisma/seed.ts",
     "owner:create": "tsx scripts/create-owner.ts",
     "backup": "tsx scripts/backup.ts",
-    "docker:smoke": "bash scripts/docker-smoke.sh"
+    "docker:smoke": "bash scripts/docker-smoke.sh",
+    "catalog:prepare": "node scripts/prepare-reference.mjs",
+    "catalog:import": "tsx scripts/import-reference.ts",
+    "qa:performance": "tsx scripts/qa-performance.ts"
   },
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "7.10.1",

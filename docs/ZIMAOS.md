@@ -34,3 +34,11 @@ Za LAN koristi privatni HTTPS proxy/Tailscale na klijentu. Otvaranje 0.0.0.0 nij
 Ne koristiti `docker compose down -v`, `prisma db push`, reset migracija ili brisanje
 baze za produkcijske nadogradnje. Prije nekompatibilne migracije trebaju plan i kopija;
 vraćanje stare image verzije samo po sebi ne poništava promjenu sheme.
+
+## Faza 3.6 — paket referentnih namirnica
+
+Docker slika uključuje `catalog/reference/catalog.json.gz` i manifest izvan `/app/data`. Pokretanje kontejnera prvo primjenjuje migracije i uvozi taj paket samo ako referentni katalog nije inicijaliziran. PostgreSQL ni vanjski USDA/OFF API nisu potrebni. Zadrži postojeći trajni volumen `/app/data`; rekreiranje kontejnera s istim volumenom čuva i katalog i osobne podatke.
+
+Prije nadogradnje napravi postojeći backup, zatim ponovno izgradi/povuci sliku i rekreiraj servis uz isti volumen. Ne koristi `down --volumes` za stvarnu instalaciju. Za svjesno ažuriranje kataloga koristi Postavke → Baza namirnica ili `docker compose exec app npm run catalog:import -- /putanja/paket.json.gz SHA256_IZ_MANIFESTA`, uz prethodno kopiranje pouzdanog lokalnog paketa u kontejner. Import je atomski i ne prepisuje osobne proizvode ni povijesne obroke. Nema automatskog preuzimanja novih izdanja.
+
+Izvori, licenca, stvarni broj zapisa i otvorene build/E2E/Docker provjere: [PHASE_3_6_REVIEW.md](PHASE_3_6_REVIEW.md).

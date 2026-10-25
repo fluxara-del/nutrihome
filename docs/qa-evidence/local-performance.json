@@ -1,0 +1,32 @@
+{
+  "environment": {
+    "platform": "win32",
+    "node": "v24.22.1",
+    "arch": "x64"
+  },
+  "fixture": {
+    "referenceFoods": 4748,
+    "personalProducts": 2000,
+    "batches": 10000
+  },
+  "importMs": 1314.3,
+  "emptyHouseholdReferenceSearch": {
+    "samples": 40,
+    "p50Ms": 3.4,
+    "p95Ms": 4.35,
+    "maxMs": 4.42
+  },
+  "largeHouseholdSearch": {
+    "samples": 40,
+    "p50Ms": 6.11,
+    "p95Ms": 7.52,
+    "maxMs": 7.81
+  },
+  "inventoryWithLargeHousehold": {
+    "samples": 10,
+    "p50Ms": 96.73,
+    "p95Ms": 114.52,
+    "maxMs": 114.52
+  },
+  "memoryRssMB": 426.4
+}

@@ -32,6 +32,7 @@ const result = spawnSync('docker', ['compose', '-p', process.env.NUTRIHOME_SMOKE
 if (result.status !== 0) process.exit(1);
 JS
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/inventory-smoke.ts
+docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/reference-smoke.ts
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/nutrition-smoke.ts
 node --import tsx --input-type=module -e 'import { labelImage } from "./tests/fixtures/label-image.ts"; process.stdout.write(await labelImage());' | docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/ocr-smoke.ts
 docker compose -p "$project" exec -T app ./node_modules/.bin/tsx scripts/backup.ts /app/backups
@@ -47,3 +48,10 @@ docker compose -p "$project" exec -T app node -e 'const S=require("better-sqlite
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/inventory-smoke.ts verify
 
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/nutrition-smoke.ts verify
+
+docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/reference-smoke.ts
+
+# A real process with no network interface searches the persisted bundled catalog.
+container_id="$(docker compose -p "$project" ps -q app)"
+image_id="$(docker inspect --format '{{.Image}}' "$container_id")"
+docker run --rm --network none --volumes-from "$container_id" -e DATABASE_URL=file:/app/data/nutrihome.db -e NUTRIHOME_SMOKE=1 "$image_id" ./node_modules/.bin/tsx scripts/reference-smoke.ts

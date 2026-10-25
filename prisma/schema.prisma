@@ -347,3 +347,38 @@ model CatalogRequest {
   createdAt   DateTime @default(now())
   @@unique([userId, requestKey])
 }
+
+model ReferenceFood {
+  id String @id
+  name String
+  nameHr String?
+  nameEn String
+  synonyms String
+  category String
+  categoryEn String
+  calories Int?
+  protein Int?
+  carbs Int?
+  fat Int?
+  fiber Int?
+  basis String
+  carbohydrateType String
+  preparation String
+  source String
+  sourceId String
+  sourceVersion String
+  searchText String
+  @@unique([source, sourceId])
+  @@index([category, name])
+}
+
+model ReferenceCatalog {
+  id String @id
+  version String
+  builtAt String
+  source String
+  license String
+  sha256 String
+  count Int
+  importedAt DateTime @default(now())
+}

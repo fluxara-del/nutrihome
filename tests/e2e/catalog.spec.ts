@@ -34,7 +34,7 @@ test("review, catalog-only save, offline local search, explicit stock and diary 
   await page.getByRole("link", { name: "Dodaj u dnevnik prehrane", exact: true }).click();
   await expect(page.getByRole("form", { name: "Dodaj unos prehrane", exact: true }).locator('select[name="sourceId"]')).toHaveValue(id);
   await page.goto("/namirnice");
-  await page.getByLabel("Samo lokalni katalog (bez vanjskih poziva)").check();
+  await page.getByLabel("Vanjski izvori (opcionalno)").uncheck();
   await page.getByLabel("Naziv ili barkod", { exact: true }).fill("COKOLADA");
   await page.getByRole("button", { name: "Pretraži namirnice", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Katalog TEST čokolada", exact: true })).toBeVisible();
@@ -47,7 +47,7 @@ test("review, catalog-only save, offline local search, explicit stock and diary 
   await stock.getByLabel("Mjesto čuvanja", { exact: true }).selectOption("PANTRY");
   await stock.getByRole("checkbox").check(); await stock.getByRole("button", { name: "Dodaj seriju", exact: true }).click();
   await expect(page.getByTestId("usable-stock")).toHaveText("500 g");
-  await page.goto("/namirnice"); await page.getByLabel("Samo lokalni katalog (bez vanjskih poziva)").check();
+  await page.goto("/namirnice"); await page.getByLabel("Vanjski izvori (opcionalno)").uncheck();
   await page.getByLabel("Traži po barkodu", { exact: true }).check();
   await page.getByLabel("Naziv ili barkod", { exact: true }).fill("012345678905");
   await page.getByRole("button", { name: "Pretraži namirnice", exact: true }).click();
@@ -88,7 +88,7 @@ test("image API enforces session, origin, file signatures, size and allowed form
 // A known EAN-13 video fixture exercises ZXing and stream cleanup without a phone.
 test("camera video decodes a real EAN and stops its media tracks", async ({ page }) => {
   await login(page);
-  await page.getByLabel("Samo lokalni katalog (bez vanjskih poziva)").check();
+  await page.getByLabel("Vanjski izvori (opcionalno)").uncheck();
   await page.evaluate(bits => {
     navigator.mediaDevices.getUserMedia = async () => {
       const canvas = document.createElement("canvas"); canvas.width = 700; canvas.height = 320;

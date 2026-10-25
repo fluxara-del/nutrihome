@@ -1,3 +1,4 @@
+import { normalizeFoodName } from "./food-draft";
 import { createHash, randomUUID } from "node:crypto";
 import type { FoodProduct, Prisma, PrismaClient, Unit } from "@prisma/client";
 import { positiveInt, toMilligrams } from "./quantities";
@@ -22,7 +23,7 @@ export async function saveProduct(client: PrismaClient, actor: InventoryActor, r
     if (id) {
       const current = await tx.foodProduct.findFirst({ where: { id, householdId: actor.householdId } });
       if (current && current.nutritionState !== data.nutritionState && await tx.inventoryBatch.count({ where: { productId: id, quantityMg: { gt: 0 } } })) throw new InventoryError("Sirovo/kuhano ne može se mijenjati dok proizvod ima zalihu. Koristite zaseban proizvod za drugo stanje.");
-      const changed = await tx.foodProduct.updateMany({ where: { id, householdId: actor.householdId }, data: { ...data, nutritionSource: "MANUAL", sourceReference: null, sourceNutritionBasis: "PER_100_G", fiberKnown: true } });
+      const changed = await tx.foodProduct.updateMany({ where: { id, householdId: actor.householdId }, data: { ...data, nutritionSource: "MANUAL", sourceReference: null, sourceNutritionBasis: "PER_100_G" } });
       if (changed.count !== 1) throw new InventoryError("Proizvod nije pronađen.");
       return id;
     }
@@ -121,7 +122,7 @@ export async function editBatch(client: PrismaClient, actor: InventoryActor, raw
     });
 }
 export type InventoryFilters = { q?: string; category?: string; location?: string; status?: string; page?: number };
-const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("hr-HR");
+const normalize = normalizeFoodName;
 export async function listInventory(client: PrismaClient, actor: InventoryActor, filters: InventoryFilters = {}, today = localDate()) {
   await authorize(client, actor);
   const products = await client.foodProduct.findMany({ where: { householdId: actor.householdId }, orderBy: [{ name: "asc" }, { id: "asc" }], include: { batches: { where: { quantityMg: { gt: 0 } } } } });
