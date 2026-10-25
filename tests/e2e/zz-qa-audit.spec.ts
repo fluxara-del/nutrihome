@@ -1,6 +1,6 @@
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
 import { randomUUID } from "node:crypto";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { createDatabase } from "../../src/lib/db";
 import { createSession, hashPassword } from "../../src/lib/auth-core";
 import { saveProduct, addBatch } from "../../src/lib/inventory";
@@ -51,14 +51,16 @@ test('QA full user journey: login, banana, inventory, consumption, OCR, weight, 
  }finally{await client.$disconnect();}
 });
 
-test('QA catalog import access, CSRF and corrupt file leave all existing data unchanged',async({request,context})=>{
+test('QA catalog import access, CSRF and corrupt file leave all existing data unchanged',async({request,context,page})=>{
  const client=database();try{
- const counts=async()=>Promise.all([client.referenceFood.count(),client.foodProduct.count(),client.foodLog.count(),client.inventoryBatch.count()]);const before=await counts();const headers={origin:process.env.APP_URL!,'x-confirm-import':'yes','x-catalog-sha256':'0'.repeat(64)};
+ const counts=async()=>Promise.all([client.referenceFood.count(),client.foodProduct.count(),client.foodLog.count(),client.inventoryBatch.count()]);const before=await counts();const publicPage=await request.get('/prijava');expect(publicPage.headers()['content-security-policy']).not.toContain("'unsafe-eval'");const headers={origin:process.env.APP_URL!,'x-confirm-import':'yes','x-catalog-sha256':'0'.repeat(64)};
  expect.soft((await request.post('/api/reference-import',{headers,data:'invalid'})).status()).toBe(401);
  const a=await actor(client,'security');await session(client,context,a.userId);
  expect.soft((await context.request.post('/api/reference-import',{headers,data:'invalid'})).status()).toBe(403);
  const owner=await client.user.findUniqueOrThrow({where:{username:'e2e_owner'}});await context.clearCookies();await session(client,context,owner.id);
  expect.soft((await context.request.post('/api/reference-import',{headers:{...headers,origin:'https://untrusted.invalid'},data:'invalid'})).status()).toBe(403);
  const bad=await context.request.post('/api/reference-import',{headers,data:'invalid'});expect(bad.status()).toBe(400);expect(await counts()).toEqual(before);
+ expect((await context.request.post('/api/reference-import',{headers,data:Buffer.alloc(5_000_001)})).status()).toBe(413);
+ await page.goto('/postavke/baza-namirnica');await page.getByLabel('Pripremljeni katalog (.json.gz, do 5 MB)',{exact:true}).setInputFiles('catalog/reference/catalog.json.gz');const manifest=JSON.parse(readFileSync('catalog/reference/manifest.json','utf8'));await page.getByLabel('Očekivani SHA-256 iz provjerenog manifesta',{exact:true}).fill(manifest.sha256);await page.getByLabel('Potvrđujem zamjenu referentnog kataloga iz pouzdanog lokalnog paketa',{exact:true}).check();await page.getByRole('button',{name:'Ažuriraj iz lokalne datoteke',exact:true}).click();await expect(page.getByRole('status')).toContainText('4748');expect(await counts()).toEqual(before);
  }finally{await client.$disconnect();}
 });
