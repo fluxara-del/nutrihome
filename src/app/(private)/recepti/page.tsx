@@ -1,7 +1,113 @@
-import Link from 'next/link';
-import { requireUser } from '@/lib/session';
-import { db } from '@/lib/db';
-import { listRecipes, servingNutrition, snapshotRecipe } from '@/lib/recipes';
-import { recipeTags } from '@/lib/planning-input';
-export const metadata={title:'Recepti'};
-export default async function Recipes({searchParams}:{searchParams:Promise<Record<string,string|undefined>>}){const q=await searchParams,u=await requireUser();const result=await listRecipes(db(),{userId:u.id,householdId:u.householdId},q.q,q.tag,Number(q.page),q.archived==='1');return <><div className="intro"><div><p className="eyebrow">Tvoje kućanstvo</p><h1>Recepti</h1><p>Sastojci, upute i hranjive vrijednosti po porciji.</p></div><Link className="button" href="/recepti/novo">Novi recept</Link></div><form className="card form-grid" method="get"><label>Pretraži recepte<input name="q" defaultValue={q.q} maxLength={100}/></label><label>Oznaka<select name="tag" defaultValue={q.tag??''}><option value="">Sve oznake</option>{Object.entries(recipeTags).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></label><label className="checkbox-label"><input name="archived" type="checkbox" value="1" defaultChecked={q.archived==='1'}/>Arhivirani</label><button className="button">Pretraži</button></form><div className="recipe-grid">{result.rows.map(r=>{let summary='Provjeri sastojke i nutritivne podatke.';try{const n=servingNutrition(snapshotRecipe(r));summary=`${(n.totals.calories/100).toLocaleString('hr-HR')} kcal · ${(n.totals.protein/100).toLocaleString('hr-HR')} g proteina po porciji${n.estimated?' · procjena':''}`;}catch{}return <article className="card" key={r.id}><h2><Link href={`/recepti/${r.id}`}>{r.title}</Link></h2><p>{summary}</p><p className="muted">{r.servingsMilli/1000} porcija · {r.preparationMinutes+r.cookingMinutes} min{r.archived?' · arhivirano':''}</p></article>;})}</div>{!result.count&&<section className="card empty"><h2>Nema recepata za ovaj odabir.</h2><p>Dodaj vlastiti recept ili promijeni filtre.</p></section>}<nav aria-label="Stranice recepata" className="pagination">{result.page>1&&<Link href={`?${new URLSearchParams({...q,page:String(result.page-1)})}`}>Prethodna</Link>}<span>Stranica {result.page} / {result.pages} · {result.count} recepata</span>{result.page<result.pages&&<Link href={`?${new URLSearchParams({...q,page:String(result.page+1)})}`}>Sljedeća</Link>}</nav></>;}
+import Link from "next/link";
+import { requireUser } from "@/lib/session";
+import { db } from "@/lib/db";
+import { listRecipes, servingNutrition, snapshotRecipe } from "@/lib/recipes";
+import { recipeTags } from "@/lib/planning-input";
+export const metadata = { title: "Recepti" };
+export default async function Recipes({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | undefined>>;
+}) {
+  const raw = await searchParams,
+    q = Object.fromEntries(
+      Object.entries(raw).filter(([, v]) => typeof v === "string"),
+    ) as Record<string, string>,
+    u = await requireUser();
+  const result = await listRecipes(
+    db(),
+    { userId: u.id, householdId: u.householdId },
+    q.q,
+    q.tag,
+    Number(q.page),
+    q.archived === "1",
+  );
+  return (
+    <>
+      <div className="intro">
+        <div>
+          <p className="eyebrow">Tvoje kućanstvo</p>
+          <h1>Recepti</h1>
+          <p>Sastojci, upute i hranjive vrijednosti po porciji.</p>
+        </div>
+        <Link className="button" href="/recepti/novo">
+          Novi recept
+        </Link>
+      </div>
+      <form className="card form-grid" method="get">
+        <label>
+          Pretraži recepte
+          <input name="q" defaultValue={q.q} maxLength={100} />
+        </label>
+        <label>
+          Oznaka
+          <select name="tag" defaultValue={q.tag ?? ""}>
+            <option value="">Sve oznake</option>
+            {Object.entries(recipeTags).map(([k, v]) => (
+              <option key={k} value={k}>
+                {v}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="checkbox-label">
+          <input
+            name="archived"
+            type="checkbox"
+            value="1"
+            defaultChecked={q.archived === "1"}
+          />
+          Arhivirani
+        </label>
+        <button className="button">Pretraži</button>
+      </form>
+      <div className="recipe-grid">
+        {result.rows.map((r) => {
+          let summary = "Provjeri sastojke i nutritivne podatke.";
+          try {
+            const n = servingNutrition(snapshotRecipe(r));
+            summary = `${(n.totals.calories / 100).toLocaleString("hr-HR")} kcal · ${(n.totals.protein / 100).toLocaleString("hr-HR")} g proteina po porciji${n.estimated ? " · procjena" : ""}`;
+          } catch {}
+          return (
+            <article className="card" key={r.id}>
+              <h2>
+                <Link href={`/recepti/${r.id}`}>{r.title}</Link>
+              </h2>
+              <p>{summary}</p>
+              <p className="muted">
+                {r.servingsMilli / 1000} porcija ·{" "}
+                {r.preparationMinutes + r.cookingMinutes} min
+                {r.archived ? " · arhivirano" : ""}
+              </p>
+            </article>
+          );
+        })}
+      </div>
+      {!result.count && (
+        <section className="card empty">
+          <h2>Nema recepata za ovaj odabir.</h2>
+          <p>Dodaj vlastiti recept ili promijeni filtre.</p>
+        </section>
+      )}
+      <nav aria-label="Stranice recepata" className="pagination">
+        {result.page > 1 && (
+          <Link
+            href={`?${new URLSearchParams({ ...q, page: String(result.page - 1) })}`}
+          >
+            Prethodna
+          </Link>
+        )}
+        <span>
+          Stranica {result.page} / {result.pages} · {result.count} recepata
+        </span>
+        {result.page < result.pages && (
+          <Link
+            href={`?${new URLSearchParams({ ...q, page: String(result.page + 1) })}`}
+          >
+            Sljedeća
+          </Link>
+        )}
+      </nav>
+    </>
+  );
+}

@@ -26,3 +26,12 @@ npm run test:e2e
 Ako Turbopack u ograničenom okruženju prijavi zabranu junctiona, provjeri Windows razvojne dozvole i pokušaj `npm run build -- --webpack`. U Codex sandboxu i taj pokušaj može ostati blokiran `EPERM mkdir`; tada build i E2E nisu potvrđeni. Ne mijenjaj ovisnosti radi prikrivanja te greške. Opcionalno preusmjeri npm cache u radnu mapu ako zadani cache nema prava pisanja.
 
 Za ažuriranje iz lokalnog paketa i izvore podataka vidi [PHASE_3_6_REVIEW.md](PHASE_3_6_REVIEW.md). Nakon novog ručnog uvoza ponovno pokretanje aplikacije ne vraća stariji paket.
+
+## Nadogradnja faze 4
+
+Uz postojeću sigurnosnu kopiju primijeni redoviti `npm run db:migrate`; ne koristi
+`db push`, reset ili brisanje baze. Nova migracija dodaje recepte/planner metapodatke
+i proširuje oznake uz očuvanje postojećih zapisa. Stari planovi bez autora i
+nutritivnih snimki čuvaju se bez automatskog preuzimanja vlasništva. Recepti i planovi
+dostupni su na `/recepti` i `/plan`. Ciljevi se potvrđuju u Postavkama, a procjene
+cijena na `/plan/cijene`. Kupnja i zakazani poslovi ostaju za fazu 5.

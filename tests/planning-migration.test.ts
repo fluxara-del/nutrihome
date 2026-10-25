@@ -1,4 +1,52 @@
-import { it, expect } from 'vitest';
-import Sqlite from 'better-sqlite3';
-import { readFileSync, readdirSync } from 'node:fs';
-it('phase 4 migration preserves legacy recipes, labels, plans and meal slots',()=>{const db=new Sqlite(':memory:');try{db.pragma('foreign_keys=ON');for(const m of readdirSync('prisma/migrations').filter(n=>/^\d/.test(n)&&n<'20261025010000').sort())db.exec(readFileSync(`prisma/migrations/${m}/migration.sql`,'utf8'));db.exec(`INSERT INTO Household(id,name) VALUES('h','home');INSERT INTO Recipe(id,householdId,title,instructions,servingsMilli,preparationMinutes,cookingMinutes,updatedAt) VALUES('r','h','Čušpajz','Kuhati',1000,5,10,CURRENT_TIMESTAMP);INSERT INTO RecipeTag(recipeId,tag) VALUES('r','MEAL_PREP');INSERT INTO MealPlan(id,householdId,weekStart,status,targetCaloriesCenti,targetProteinCenti) VALUES('p','h','2026-10-26','APPROVED',200000,10000);INSERT INTO PlannedMeal(id,mealPlanId,date,mealType,recipeId,servingsMilli) VALUES('m','p','2026-10-26','LUNCH','r',1000);`);db.exec(readFileSync('prisma/migrations/20261025010000_recipes_planner/migration.sql','utf8'));expect(db.prepare('SELECT title,searchText,version FROM Recipe').get()).toEqual({title:'Čušpajz',searchText:'cuspajz',version:0});expect(db.prepare('SELECT tag FROM RecipeTag').get()).toEqual({tag:'MEAL_PREP'});expect(db.prepare('SELECT status,ownerUserId,approvedReport FROM MealPlan').get()).toEqual({status:'APPROVED',ownerUserId:null,approvedReport:null});expect(db.prepare('SELECT recipeId,servingsMilli,slot,recipeSnapshot FROM PlannedMeal').get()).toEqual({recipeId:'r',servingsMilli:1000,slot:1,recipeSnapshot:null});expect(db.pragma('foreign_key_check')).toEqual([]);db.prepare('INSERT INTO RecipeTag(recipeId,tag) VALUES(?,?)').run('r','VEGAN');}finally{db.close();}});
+import { it, expect } from "vitest";
+import Sqlite from "better-sqlite3";
+import { readFileSync, readdirSync } from "node:fs";
+it("phase 4 migration preserves legacy recipes, labels, plans and meal slots", () => {
+  const db = new Sqlite(":memory:");
+  try {
+    db.pragma("foreign_keys=ON");
+    for (const m of readdirSync("prisma/migrations")
+      .filter((n) => /^\d/.test(n) && n < "20261025010000")
+      .sort())
+      db.exec(readFileSync(`prisma/migrations/${m}/migration.sql`, "utf8"));
+    db.exec(
+      `INSERT INTO Household(id,name) VALUES('h','home');INSERT INTO Recipe(id,householdId,title,instructions,servingsMilli,preparationMinutes,cookingMinutes,updatedAt) VALUES('r','h','Čušpajz','Kuhati',1000,5,10,CURRENT_TIMESTAMP);INSERT INTO RecipeTag(recipeId,tag) VALUES('r','MEAL_PREP');INSERT INTO MealPlan(id,householdId,weekStart,status,targetCaloriesCenti,targetProteinCenti) VALUES('p','h','2026-10-26','APPROVED',200000,10000);INSERT INTO PlannedMeal(id,mealPlanId,date,mealType,recipeId,servingsMilli) VALUES('m','p','2026-10-26','LUNCH','r',1000);`,
+    );
+    db.exec(
+      readFileSync(
+        "prisma/migrations/20261025010000_recipes_planner/migration.sql",
+        "utf8",
+      ),
+    );
+    expect(
+      db.prepare("SELECT title,searchText,version FROM Recipe").get(),
+    ).toEqual({ title: "Čušpajz", searchText: "cuspajz", version: 0 });
+    expect(db.prepare("SELECT tag FROM RecipeTag").get()).toEqual({
+      tag: "MEAL_PREP",
+    });
+    expect(
+      db
+        .prepare("SELECT status,ownerUserId,approvedReport FROM MealPlan")
+        .get(),
+    ).toEqual({ status: "APPROVED", ownerUserId: null, approvedReport: null });
+    expect(
+      db
+        .prepare(
+          "SELECT recipeId,servingsMilli,slot,recipeSnapshot FROM PlannedMeal",
+        )
+        .get(),
+    ).toEqual({
+      recipeId: "r",
+      servingsMilli: 1000,
+      slot: 1,
+      recipeSnapshot: null,
+    });
+    expect(db.pragma("foreign_key_check")).toEqual([]);
+    db.prepare("INSERT INTO RecipeTag(recipeId,tag) VALUES(?,?)").run(
+      "r",
+      "VEGAN",
+    );
+  } finally {
+    db.close();
+  }
+});

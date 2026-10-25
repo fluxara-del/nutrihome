@@ -1,9 +1,116 @@
-import { randomUUID } from 'node:crypto';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { requireUser } from '@/lib/session';
-import { db } from '@/lib/db';
-import { recipeInclude, snapshotRecipe, servingNutrition } from '@/lib/recipes';
-import { recipeTags, type RecipeTagKey } from '@/lib/planning-input';
-import { PlanningForm } from '../../planning-forms';
-export default async function RecipeDetail({params}:{params:Promise<{id:string}>}){const u=await requireUser(),{id}=await params;const r=await db().recipe.findFirst({where:{id,householdId:u.householdId},include:recipeInclude});if(!r)notFound();let n;try{n=servingNutrition(snapshotRecipe(r));}catch{}return <><Link href="/recepti">← Recepti</Link><div className="intro"><div><h1>{r.title}</h1><p>{r.servingsMilli/1000} porcija · priprema {r.preparationMinutes} min · kuhanje {r.cookingMinutes} min{r.archived?' · arhivirano':''}</p></div><Link className="button" href={`/recepti/${id}/uredi`}>Uredi recept</Link></div><div className="recipe-grid"><section className="card"><h2>Sastojci cijelog recepta</h2><ul>{r.ingredients.map(i=><li key={i.id}>{i.quantityMg/1000} g — {i.product.name} ({i.product.nutritionState==='RAW'?'sirovo':'kuhano'})</li>)}</ul><p>{r.tags.map(t=>recipeTags[t.tag as RecipeTagKey]??t.tag).join(' · ')}</p><h2>Upute</h2><p className="recipe-instructions">{r.instructions}</p></section><section className="card"><h2>Po porciji</h2>{n?<><dl className="nutrition-values">{(['calories','protein','carbs','fat','fiber'] as const).map((k,i)=><div key={k}><dt>{['Energija','Proteini','Ugljikohidrati','Masti','Vlakna'][i]}</dt><dd>{k==='fiber'&&!n.fiberKnown?'Nepoznato':`${(n.totals[k]/100).toLocaleString('hr-HR')} ${k==='calories'?'kcal':'g'}`}</dd></div>)}</dl><p className="muted">{n.estimated?'Procjena. ':''}Količine se dijele na broj porcija. Gubitak hranjivih tvari kuhanjem nije izmjeren. Vlakna nepoznate vrijednosti nisu nula.</p>{!r.archived&&<Link className="button" href={`/dnevnik?recipe=${id}`}>Dodaj porciju u dnevnik</Link>}</>:<p className="error">Izračun nije dostupan. Provjeri recept.</p>}</section></div><section className="card mt-5"><h2>{r.archived?'Vrati recept':'Arhiviraj recept'}</h2><p>Arhiviranje čuva povijest dnevnika i planova.</p><PlanningForm operation="archive" values={{id,version:r.version,archived:String(!r.archived)}} requestKey={randomUUID()} label={r.archived?'Vrati recept':'Arhiviraj'}/></section></>;}
+import { randomUUID } from "node:crypto";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { requireUser } from "@/lib/session";
+import { db } from "@/lib/db";
+import { recipeInclude, snapshotRecipe, servingNutrition } from "@/lib/recipes";
+import { recipeTags, type RecipeTagKey } from "@/lib/planning-input";
+import { PlanningForm } from "../../planning-forms";
+export default async function RecipeDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const u = await requireUser(),
+    { id } = await params;
+  const r = await db().recipe.findFirst({
+    where: { id, householdId: u.householdId },
+    include: recipeInclude,
+  });
+  if (!r) notFound();
+  let n;
+  try {
+    n = servingNutrition(snapshotRecipe(r));
+  } catch {}
+  return (
+    <>
+      <Link href="/recepti">← Recepti</Link>
+      <div className="intro">
+        <div>
+          <h1>{r.title}</h1>
+          <p>
+            {r.servingsMilli / 1000} porcija · priprema {r.preparationMinutes}{" "}
+            min · kuhanje {r.cookingMinutes} min
+            {r.archived ? " · arhivirano" : ""}
+          </p>
+        </div>
+        <Link className="button" href={`/recepti/${id}/uredi`}>
+          Uredi recept
+        </Link>
+      </div>
+      <div className="recipe-grid">
+        <section className="card">
+          <h2>Sastojci cijelog recepta</h2>
+          <ul>
+            {r.ingredients.map((i) => (
+              <li key={i.id}>
+                {i.quantityMg / 1000} g — {i.product.name} (
+                {i.product.nutritionState === "RAW" ? "sirovo" : "kuhano"})
+              </li>
+            ))}
+          </ul>
+          <p>
+            {r.tags
+              .map((t) => recipeTags[t.tag as RecipeTagKey] ?? t.tag)
+              .join(" · ")}
+          </p>
+          <h2>Upute</h2>
+          <p className="recipe-instructions">{r.instructions}</p>
+        </section>
+        <section className="card">
+          <h2>Po porciji</h2>
+          {n ? (
+            <>
+              <dl className="nutrition-values">
+                {(
+                  ["calories", "protein", "carbs", "fat", "fiber"] as const
+                ).map((k, i) => (
+                  <div key={k}>
+                    <dt>
+                      {
+                        [
+                          "Energija",
+                          "Proteini",
+                          "Ugljikohidrati",
+                          "Masti",
+                          "Vlakna",
+                        ][i]
+                      }
+                    </dt>
+                    <dd>
+                      {k === "fiber" && !n.fiberKnown
+                        ? "Nepoznato"
+                        : `${(n.totals[k] / 100).toLocaleString("hr-HR")} ${k === "calories" ? "kcal" : "g"}`}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="muted">
+                {n.estimated ? "Procjena. " : ""}Količine se dijele na broj
+                porcija. Gubitak hranjivih tvari kuhanjem nije izmjeren. Vlakna
+                nepoznate vrijednosti nisu nula.
+              </p>
+              {!r.archived && (
+                <Link className="button" href={`/dnevnik?recipe=${id}`}>
+                  Dodaj porciju u dnevnik
+                </Link>
+              )}
+            </>
+          ) : (
+            <p className="error">Izračun nije dostupan. Provjeri recept.</p>
+          )}
+        </section>
+      </div>
+      <section className="card mt-5">
+        <h2>{r.archived ? "Vrati recept" : "Arhiviraj recept"}</h2>
+        <p>Arhiviranje čuva povijest dnevnika i planova.</p>
+        <PlanningForm
+          operation="archive"
+          values={{ id, version: r.version, archived: String(!r.archived) }}
+          requestKey={randomUUID()}
+          label={r.archived ? "Vrati recept" : "Arhiviraj"}
+        />
+      </section>
+    </>
+  );
+}

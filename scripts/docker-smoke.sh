@@ -34,6 +34,7 @@ JS
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/inventory-smoke.ts
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/reference-smoke.ts
 docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/nutrition-smoke.ts
+docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/planning-smoke.ts
 node --import tsx --input-type=module -e 'import { labelImage } from "./tests/fixtures/label-image.ts"; process.stdout.write(await labelImage());' | docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/ocr-smoke.ts
 docker compose -p "$project" exec -T app ./node_modules/.bin/tsx scripts/backup.ts /app/backups
 # Migrations can be safely re-applied; data survives container recreation.
@@ -55,3 +56,7 @@ docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bi
 container_id="$(docker compose -p "$project" ps -q app)"
 image_id="$(docker inspect --format '{{.Image}}' "$container_id")"
 docker run --rm --network none --volumes-from "$container_id" -e DATABASE_URL=file:/app/data/nutrihome.db -e NUTRIHOME_SMOKE=1 "$image_id" ./node_modules/.bin/tsx scripts/reference-smoke.ts
+
+# Phase 4 snapshots survive recreation and run without network.
+docker compose -p "$project" exec -T -e NUTRIHOME_SMOKE=1 app ./node_modules/.bin/tsx scripts/planning-smoke.ts verify
+docker run --rm --network none --volumes-from "$container_id" -e DATABASE_URL=file:/app/data/nutrihome.db -e NUTRIHOME_SMOKE=1 "$image_id" ./node_modules/.bin/tsx scripts/planning-smoke.ts verify
