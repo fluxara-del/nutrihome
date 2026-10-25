@@ -194,3 +194,16 @@ it("upgrades phase 2 records without changing existing food totals, weights, or 
     expect(raw.pragma("foreign_key_check")).toEqual([]);
   } finally { raw.close(); }
 });
+
+it("QA regression: unknown fiber stays null in new diary snapshots and history survives catalog correction", async () => {
+  await client.foodProduct.update({where:{id:productId},data:{fiberKnown:false,fiberPer100gCenti:0,estimatedNutrition:true}});
+  const saved=await saveFoodLog(client,actor,food(),TODAY);
+  const original=await client.foodLog.findUniqueOrThrow({where:{id:saved.targetId}});
+  expect(original.calculatedFiberCenti).toBeNull();
+  expect(JSON.parse(original.nutritionSnapshot!).fiberKnown).toBe(false);
+  await saveProduct(client,actor,product({fiber:"0"}),productId);
+  const changed=await saveFoodLog(client,actor,food({id:saved.targetId,version:0,quantity:"120"}),TODAY);
+  expect((await client.foodLog.findUniqueOrThrow({where:{id:changed.targetId}})).calculatedFiberCenti).toBeNull();
+  const fresh=await saveFoodLog(client,actor,food(),TODAY);
+  expect((await client.foodLog.findUniqueOrThrow({where:{id:fresh.targetId}})).calculatedFiberCenti).toBe(0);
+});

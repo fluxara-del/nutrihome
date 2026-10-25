@@ -70,7 +70,7 @@ export async function saveFoodLog(client: PrismaClient, actor: InventoryActor, r
     } else snapshot = await snapshotFor(tx, actor, input.sourceType, input.sourceId);
     const calculation = calculateSnapshot(snapshot, input), { totals } = calculation;
     const data = { date: input.date, enteredQuantity: input.quantity, enteredUnit: input.unit, quantityMilli: calculation.quantityMilli, foodState: calculation.foodState, estimatedNutrition: calculation.estimated, sourceName: snapshot.name,
-      nutritionSnapshot: JSON.stringify(snapshot), yieldMilli: calculation.yieldMilli, calculatedCaloriesCenti: totals.calories, calculatedProteinCenti: totals.protein, calculatedCarbsCenti: totals.carbs, calculatedFatCenti: totals.fat, calculatedFiberCenti: totals.fiber };
+      nutritionSnapshot: JSON.stringify(snapshot), yieldMilli: calculation.yieldMilli, calculatedCaloriesCenti: totals.calories, calculatedProteinCenti: totals.protein, calculatedCarbsCenti: totals.carbs, calculatedFatCenti: totals.fat, calculatedFiberCenti: calculation.fiberKnown ? totals.fiber : null };
     if (input.id) {
       const updated = await tx.foodLog.updateMany({ where: { id: input.id, userId: actor.userId, version: input.version }, data: { ...data, version: { increment: 1 } } });
       if (updated.count !== 1) throw new NutritionError("Unos je promijenjen. Osvježite stranicu.");

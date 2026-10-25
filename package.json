@@ -19,7 +19,8 @@
     "backup": "tsx scripts/backup.ts",
     "docker:smoke": "bash scripts/docker-smoke.sh",
     "catalog:prepare": "node scripts/prepare-reference.mjs",
-    "catalog:import": "tsx scripts/import-reference.ts"
+    "catalog:import": "tsx scripts/import-reference.ts",
+    "qa:performance": "tsx scripts/qa-performance.ts"
   },
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "7.10.1",
