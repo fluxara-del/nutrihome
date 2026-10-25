@@ -235,6 +235,30 @@ export default async function Planner({
                                 m.stored.cookingMinutes}{" "}
                               min
                             </p>
+                            <details>
+                              <summary>Snimljeni sastojci i upute</summary>
+                              <p>
+                                Količine cijelog recepta za{" "}
+                                {m.stored.nutrition.servingsMilli / 1000}{" "}
+                                porcija. Za ovaj obrok koristi{" "}
+                                {m.servingsMilli / 1000} porcija.
+                              </p>
+                              <ul>
+                                {m.stored.nutrition.ingredients.map((i) => (
+                                  <li key={i.productId}>
+                                    {i.quantityMg / 1000} g — {i.product.name} (
+                                    {i.product.state === "RAW"
+                                      ? "sirovo"
+                                      : "kuhano"}
+                                    )
+                                  </li>
+                                ))}
+                              </ul>
+                              <p className="recipe-instructions">
+                                {m.stored.instructions ||
+                                  "Upute nisu snimljene."}
+                              </p>
+                            </details>
                             {editable && (
                               <details>
                                 <summary>

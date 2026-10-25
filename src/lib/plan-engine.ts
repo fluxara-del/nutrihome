@@ -46,6 +46,7 @@ export const storedMealSchema = z.strictObject({
       .min(1)
       .max(50),
   }),
+  instructions: z.string().max(20000).default(""),
   recipeVersion: int,
   productVersions: z.record(z.string(), z.string()),
   tags: z.array(z.string()),
@@ -439,36 +440,45 @@ export function generateMeals(
         );
       let best = choices[0],
         bestScore = Infinity;
+      const availability = new Map<
+        string,
+        { quantity: number; soon: number }
+      >();
+      const usableDate = date > today ? date : today,
+        soonDate = addDays(date, 3);
+      for (const [id, batches] of inventory) {
+        let quantity = 0,
+          soon = 0;
+        for (const batch of batches) {
+          if (
+            batch.expirationDate !== null &&
+            batch.expirationDate < usableDate
+          )
+            continue;
+          quantity += batch.quantityMg;
+          if (batch.expirationDate !== null && batch.expirationDate <= soonDate)
+            soon += batch.quantityMg;
+        }
+        availability.set(id, { quantity, soon });
+      }
       for (const choice of choices) {
         let missing = 0,
           total = 0,
           soon = 0,
-          cost = 0;
+          cost = 0,
+          unknownMissing = 0;
         for (const need of choice.nutrition.stocks) {
-          const eligible = (inventory.get(need.productId) ?? []).filter(
-            (b) =>
-              b.expirationDate === null ||
-              b.expirationDate >= (date > today ? date : today),
-          );
-          const available = eligible.reduce((n, b) => n + b.quantityMg, 0);
+          const available = availability.get(need.productId) ?? {
+            quantity: 0,
+            soon: 0,
+          };
           total += need.quantityMg;
-          const short = Math.max(0, need.quantityMg - available);
+          const short = Math.max(0, need.quantityMg - available.quantity);
           missing += short;
-          soon += Math.min(
-            need.quantityMg,
-            eligible
-              .filter(
-                (b) =>
-                  b.expirationDate !== null &&
-                  b.expirationDate <= addDays(date, 3),
-              )
-              .reduce((n, b) => n + b.quantityMg, 0),
-          );
-          cost += priceMap.has(need.productId)
-            ? (short * priceMap.get(need.productId)!) / 1000000
-            : short > 0
-              ? 500
-              : 0;
+          soon += Math.min(need.quantityMg, available.soon);
+          if (priceMap.has(need.productId))
+            cost += (short * priceMap.get(need.productId)!) / 1000000;
+          else if (short > 0) unknownMissing++;
         }
         const preference = settings.preferredTags.filter((t) =>
           choice.stored.tags.includes(t),
@@ -482,6 +492,7 @@ export function generateMeals(
           (missing / Math.max(total, 1)) * 150000 -
           (soon / Math.max(total, 1)) * 100000 +
           cost * 20 +
+          unknownMissing * 10000 +
           (used.get(choice.id) ?? 0) * 20000 -
           preference * 20000;
         if (score < bestScore) {

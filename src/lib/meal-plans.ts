@@ -34,6 +34,7 @@ import {
 export function storedRecipe(r: FullRecipe): StoredMeal {
   return storedMealSchema.parse({
     nutrition: snapshotRecipe(r),
+    instructions: r.instructions,
     recipeVersion: r.version,
     productVersions: Object.fromEntries(
       r.ingredients.map((i) => [

@@ -334,6 +334,8 @@ it("requires warning acceptance, freezes approved report, and explicitly reopens
     acceptWarnings: true,
   });
   const approved = await client.mealPlan.findUniqueOrThrow({ where: { id } });
+  await saveRecipe(client,actor,{...recipeInput(),id:recipeId,version:1,instructions:"Nove upute ne smiju promijeniti snimku."});
+  expect((await loadPlan(client,actor,nextWeekStart())).meals![0].stored.instructions).toBe("Izvagati i pomiješati sastojke.");
   expect(approved.status).toBe("APPROVED");
   await savePlanningPrice(client, actor, {
     ...confirmation(),
@@ -495,6 +497,7 @@ it("rejects incomplete or duplicate slots and portions beyond numeric boundaries
 });
 it("measures the bounded 500-recipe planner against 1000 stock batches", async () => {
   const stored = storedRecipe(await recipe());
+  const first=stored.nutrition.ingredients[0];stored.nutrition.ingredients=Array.from({length:50},(_,i)=>({...first,productId:`p${i}`,quantityMg:2000,product:{...first.product,sourceId:`p${i}`}}));
   const recipes = Array.from({ length: 500 }, (_, i) => ({
     id: `r${String(i).padStart(3, "0")}`,
     stored: {
@@ -504,7 +507,7 @@ it("measures the bounded 500-recipe planner against 1000 stock batches", async (
   }));
   const stocks = Array.from({ length: 1000 }, (_, i) => ({
     id: `b${i}`,
-    productId: i < 20 ? productId : `unrelated${i}`,
+    productId: `p${i%50}`,
     quantityMg: 100000,
     expirationDate: null,
     createdAt: new Date(0),
@@ -520,7 +523,7 @@ it("measures the bounded 500-recipe planner against 1000 stock batches", async (
   );
   expect(meals).toHaveLength(21);
   console.log(
-    `Phase 4 planner: 500 recipes, 1000 batches, 21 slots: ${Math.round(performance.now() - started)} ms`,
+    `Phase 4 planner: 500 recipes, 50 ingredients each, 1000 batches, 21 slots: ${Math.round(performance.now() - started)} ms`,
   );
 });
 it("regenerates one meal with a different permitted recipe and leaves all other slots intact", async () => {

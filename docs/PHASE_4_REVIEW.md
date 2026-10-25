@@ -38,3 +38,10 @@ a ne buduću rezervaciju. Nema korisničkog brisanja povijesnih recepata ili pla
 - Docker i fizički mobilni uređaj/ZimaOS nisu lokalno dostupni. Docker smoke pokreće Linux CI.
 
 Konačni rezultati CI-ja i vizualnog pregleda dopunjuju se prije označavanja PR-a spremnim za pregled.
+
+### Dodatne provjere tijekom implementacije
+
+- Zadržana je poruka potvrde cijene nakon osvježavanja podataka (Medium UX). Izvorni browser rezultat: CI `40204196279`; dodana regresijska provjera.
+- Ispravljen je lokator novog E2E testa koji je relativnom `has` filtru pogrešno dodao roditeljski lokator (testna infrastruktura; nije greška aplikacije). Izvorni rezultat: CI `40204741158`, čekanje odabira recepta.
+- Raspoloživost serija računa se jednom po proizvodu i slotu, umjesto za svakog kandidata i sastojak. Lokalna izolirana provjera čistog planerskog izračuna i izvještaja za 500 recepata × 50 sastojaka / 1000 serija: 325 ms za 21 slot, 526 ms za 84 slota. To nije mjerenje HTTP-a ni zapisivanja u bazu. Dokaz: `phase4-evidence/local-planner-performance.json`, ponovljivo s `npm run qa:performance`. Puni početni neoptimizirani benchmark zaustavljen je prije dovršetka jer je trajao predugo; nema dovršenog početnog rezultata za usporedbu.
+- Plan sada čuva i upute te izvorne količine sastojaka uz nutritivne snimke, vidljive kroz „Snimljeni sastojci i upute”. Link na recept i dalje otvara aktualnu uređivu verziju.

@@ -11,6 +11,7 @@ test("phase 4: recipes, portions, diary snapshot, prices, seven-day planning, ap
   context,
 }) => {
   test.setTimeout(150000);
+  page.setDefaultTimeout(15000);
   if (
     !process.env.DATABASE_URL?.includes("nutrihome-e2e-") ||
     !process.env.E2E_PASSWORD
@@ -174,9 +175,11 @@ test("phase 4: recipes, portions, diary snapshot, prices, seven-day planning, ap
       page.getByRole("heading", { name: "Nacrt plana", exact: true }),
     ).toBeVisible();
     const meal = page.locator(".planned-meal").first();
-    await meal.locator("summary").click();
+    await meal
+      .getByText("Zamijeni recept ili prilagodi porciju", { exact: true })
+      .click();
     const mealForm = meal.locator("form").filter({
-      has: meal.getByRole("button", { name: "Spremi obrok", exact: true }),
+      has: page.getByRole("button", { name: "Spremi obrok", exact: true }),
     });
     await mealForm.getByLabel("Recept", { exact: true }).selectOption(second);
     await mealForm.getByLabel("Broj porcija", { exact: true }).fill("1.25");
@@ -187,14 +190,12 @@ test("phase 4: recipes, portions, diary snapshot, prices, seven-day planning, ap
     await expect(
       meal.getByText("1.25 porcija · 3 min", { exact: true }),
     ).toBeVisible();
-    const regenerate = meal
-      .locator("form")
-      .filter({
-        has: meal.getByRole("button", {
-          name: "Predloži drugi obrok",
-          exact: true,
-        }),
-      });
+    const regenerate = meal.locator("form").filter({
+      has: page.getByRole("button", {
+        name: "Predloži drugi obrok",
+        exact: true,
+      }),
+    });
     await regenerate.getByLabel("Potvrđujem promjenu", { exact: true }).check();
     await regenerate
       .getByRole("button", { name: "Predloži drugi obrok", exact: true })
