@@ -6,7 +6,7 @@
 | 2 — zalihe (dovršeno) | CRUD proizvoda/serija, FEFO, audit transakcije, pretraživanje i upozorenja | Negativne zalihe, istodobnost, dvostruko knjiženje i rokovi |
 | 3 — dnevnik (dovršeno) | Hrana/recept u dnevniku, izmjena/brisanje, ciljevi, težina i 7/30-dnevni trendovi | Snapshot nutrijenata, sirovo/kuhano, autorizacija i prosjeci |
 | 3.5 — baza namirnica (implementirano) | Lokalni katalog, Open Food Facts, opcionalni USDA, EAN/UPC kamera, lokalni OCR i potvrđeni import u postojeći FoodProduct | Stvarni OCR, provjera stupaca/jedinica, duplikati, očuvanje baze, autorizacija i siguran prijenos u zalihe/dnevnik |
-| 4 — recepti i plan | Recepti, porcije, deterministički planer, zamjena i odobravanje | Prehrambena ograničenja, ciljevi i provjerljiv izvještaj budžeta |
+| 4 — recepti i plan (implementirano, PR #3 za pregled) | Recepti, porcije, deterministički planer, zamjena i odobravanje | Prehrambena ograničenja, ciljevi i provjerljiv izvještaj budžeta |
 | 5 — kupnja i raspored | Agregacija, kupnja → serije, nedjeljni nacrt i ručni gumb | Manjkovi, isteci, idempotentnost, DST i restart joba |
 | 6 — AI (opcionalno) | Recepti, zamjene i etikete, potvrda i troškovni limiti | Schema validacija, odbijanje nevaljanih podataka, nema samostalnih mutacija |
 | 7 — produkcijsko očvršćivanje | ZimaOS/Tailscale verifikacija, povrat kopije, PWA uređaji, sigurnosna revizija | Stvarna instalacija, restore drill, HTTPS, CSP i pregled pristupa |

@@ -167,3 +167,18 @@ th { font-weight:600; }
 .intro > [data-slot="button"] { flex-shrink:0; }
 @media(max-width:1050px) { .shell { grid-template-columns:205px minmax(0,1fr); } .dashboard-grid { grid-template-columns:minmax(0,1fr); } .stats { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:720px) { .dashboard-grid { grid-template-columns:minmax(0,1fr); } }
+.recipe-grid,.plan-days { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;margin-top:20px; }
+.ingredient-row { display:grid;grid-template-columns:minmax(0,2fr) minmax(90px,1fr) auto;gap:12px;align-items:end;margin-bottom:14px; }
+.ingredient-row>* { min-width:0; }
+.recipe-instructions { white-space:pre-wrap;overflow-wrap:anywhere; }
+.planned-meal { border-top:1px solid var(--line);padding:14px 0; }
+.planned-meal h3 { overflow-wrap:anywhere; }
+.form-stack { display:grid;gap:16px; }
+.form-stack fieldset { min-width:0;padding:16px;border:1px solid var(--line);border-radius:12px; }
+.form-stack textarea { min-height:150px; }
+.nutrition-values>div { display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid var(--line); }
+@media(max-width:540px) { .ingredient-row { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }.ingredient-row>label:first-child { grid-column:1/-1; }.ingredient-row>button { width:100%; } }
+.button { display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 16px;border-radius:12px;background:var(--primary);color:var(--background);font-weight:600;text-align:center; }
+.button:disabled { opacity:.5;cursor:default; }
+.form-stack button:not(.button) { min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--background);color:var(--foreground); }
+.form-stack button:not(.button):disabled { opacity:.5; }

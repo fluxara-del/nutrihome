@@ -1,0 +1,24 @@
+{
+  "platform": "win32",
+  "node": "v24.22.1",
+  "result": [
+    {
+      "recipes": 500,
+      "ingredientsPerRecipe": 50,
+      "stockBatches": 1000,
+      "mealCount": 3,
+      "slots": 21,
+      "durationMs": 325,
+      "unknownPrices": 0
+    },
+    {
+      "recipes": 500,
+      "ingredientsPerRecipe": 50,
+      "stockBatches": 1000,
+      "mealCount": 12,
+      "slots": 84,
+      "durationMs": 526,
+      "unknownPrices": 0
+    }
+  ]
+}

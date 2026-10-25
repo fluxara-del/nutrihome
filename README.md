@@ -1,7 +1,7 @@
 # NutriHome
 
 Privatna aplikacija za prehranu, zalihe i planiranje obroka, na hrvatskom jeziku.
-**Trenutno: faze 1–3.5 — temelj, zalihe, osobni dnevnik i baza namirnica.** Nije gotova produkcijska nutricionistička aplikacija.
+**Trenutno: faze 1–4 — zalihe, dnevnik, ugrađena baza namirnica, recepti i tjedni plan.** Nije gotova produkcijska nutricionistička aplikacija.
 
 Dostupno u izvoru: relacijska shema i migracije, lokalni vlasnički račun, prijava i
 odjava sa serverskim sesijama, zaštićena navigacija, nadzorna ploča sa stvarnim
@@ -23,8 +23,7 @@ Svi podaci prolaze uređivanje i potvrdu. Spremanje proizvoda ne mijenja zalihe 
 dnevnik; njihove se količine potvrđuju zasebno. Fotografije se ne čuvaju trajno.
 Vrijednosti na 100 ml traže potvrđenu gustoću, a podaci po porciji poznatu veličinu.
 
-Stvaranje/uređivanje recepata, planer, kupnja, nedjeljni posao i AI
-**još nisu implementirani**. Stranice to izričito navode.
+Dostupni su vlastiti recepti, porcije, arhiviranje, zamjena obroka i odobravanje sedmodnevnog plana. Planner provjerava potvrđene ciljeve, ograničenja i procijenjeni dodatni trošak. Kupnja, nedjeljni posao i AI **još nisu implementirani**. Detalji: [pregled faze 4](docs/PHASE_4_REVIEW.md).
 Tablice i kalendarske pomoćne funkcije pripremaju kasnije faze; ne predstavljaju
 izvršene poslove ili dovršene funkcije.
 

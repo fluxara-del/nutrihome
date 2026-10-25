@@ -20,9 +20,9 @@ function Messages({ state, dateLink }: { state: NutritionState; dateLink?: "dnev
   return <>{state.error && <p role="alert" className="error">{state.error}</p>}{state.success && <p role="status" className="notice mt-4">{state.success}{dateLink && state.date && <> <Link href={`/${dateLink}?${dateLink === "dnevnik" ? "date" : "end"}=${state.date}`}>Otvori datum {state.date}</Link></>}</p>}</>;
 }
 function Confirm({ label = "Potvrđujem spremanje" }: { label?: string }) { return <label className="checkbox-label"><input type="checkbox" name="confirmed" required/>{label}</label>; }
-export function FoodForm({ sources, date, today, requestKey, entry, initialSourceId }: { sources: FoodSource[]; date: string; today: string; requestKey: string; entry?: FoodEdit; initialSourceId?: string }) {
+export function FoodForm({ sources, date, today, requestKey, entry, initialSourceId, initialSourceType }: { sources: FoodSource[]; date: string; today: string; requestKey: string; entry?: FoodEdit; initialSourceId?: string; initialSourceType?: "PRODUCT" | "RECIPE" }) {
   const { state, formAction, pending, key } = useRequest(foodAction, requestKey);
-  const [type, setType] = useState<"PRODUCT" | "RECIPE">(entry?.source.type ?? "PRODUCT");
+  const [type, setType] = useState<"PRODUCT" | "RECIPE">(entry?.source.type ?? initialSourceType ?? "PRODUCT");
   const [sourceId, setSourceId] = useState(entry?.source.id ?? sources.find(source => source.id === initialSourceId && source.type === type)?.id ?? sources.find(source => source.type === type)?.id ?? "");
   const [foodState, setFoodState] = useState(entry?.foodState ?? sources.find(source => source.id === sourceId)?.state ?? "RAW");
   const [factor, setFactor] = useState(entry?.yield ?? "");

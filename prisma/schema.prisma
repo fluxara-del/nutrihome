@@ -64,6 +64,8 @@ model User {
   inventoryOperations InventoryOperation[]
   nutritionRequests NutritionRequest[]
   catalogRequests CatalogRequest[]
+  planningRequests PlanningRequest[]
+  ownedPlans MealPlan[]
   @@index([householdId])
 }
 
@@ -116,6 +118,7 @@ model FoodProduct {
   ingredients              RecipeIngredient[]
   logs                     FoodLog[]
   shoppingItems            ShoppingListItem[]
+  planningPrice            PlanningPrice?
   inventoryOperations      InventoryOperation[]
   @@unique([householdId, barcode])
   @@index([householdId, name])
@@ -163,6 +166,9 @@ model InventoryTransaction {
 }
 
 model Recipe {
+  version             Int @default(0)
+  archived            Boolean @default(false)
+  searchText          String @default("")
   id                  String @id @default(cuid())
   householdId         String
   household           Household @relation(fields: [householdId], references: [id], onDelete: Restrict)
@@ -178,6 +184,7 @@ model Recipe {
   plannedMeals        PlannedMeal[]
   logs                FoodLog[]
   @@index([householdId, title])
+  @@index([householdId, archived, title])
 }
 
 model RecipeIngredient {
@@ -200,6 +207,12 @@ model RecipeTag {
 }
 
 model MealPlan {
+  ownerUserId        String?
+  owner              User? @relation(fields: [ownerUserId], references: [id], onDelete: Restrict)
+  version            Int @default(0)
+  settingsSnapshot   String?
+  approvedReport     String?
+  approvedAt         DateTime?
   id                 String @id @default(cuid())
   householdId        String
   household          Household @relation(fields: [householdId], references: [id], onDelete: Restrict)
@@ -214,6 +227,8 @@ model MealPlan {
 }
 
 model PlannedMeal {
+  slot        Int @default(0)
+  recipeSnapshot String?
   id          String @id @default(cuid())
   mealPlanId  String
   mealPlan    MealPlan @relation(fields: [mealPlanId], references: [id], onDelete: Cascade)
@@ -223,7 +238,7 @@ model PlannedMeal {
   recipe      Recipe @relation(fields: [recipeId], references: [id], onDelete: Restrict)
   servingsMilli Int
   confirmedAt DateTime?
-  @@unique([mealPlanId, date, mealType])
+  @@unique([mealPlanId, date, slot])
   @@index([recipeId])
 }
 
@@ -381,4 +396,24 @@ model ReferenceCatalog {
   sha256 String
   count Int
   importedAt DateTime @default(now())
+}
+
+model PlanningRequest {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Restrict)
+  householdId String
+  requestKey String
+  requestHash String
+  kind String
+  targetId String
+  createdAt DateTime @default(now())
+  @@unique([userId, requestKey])
+}
+model PlanningPrice {
+  productId String @id
+  product FoodProduct @relation(fields: [productId], references: [id], onDelete: Cascade)
+  centsPerKg Int?
+  version Int @default(1)
+  updatedAt DateTime @updatedAt
 }
