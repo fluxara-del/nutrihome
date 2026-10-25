@@ -31,7 +31,7 @@ Matrica obuhvaća **375×812, 390×844, 768×1024 i 1440×900**, svijetlu i tamn
 
 Prije popravka pronađena su **22 horizontalna prelijevanja**, uz **0 JavaScript pageerror događaja**. Mjerenja su u [baseline-layout-metrics.json](qa-evidence/baseline-layout-metrics.json). Dopušteno interno pomicanje nutritivne tablice nije greška; prelijevanje cijelog dokumenta jest. Nije dodano skrivanje sadržaja s `overflow-x:hidden`.
 
-Ručno su pregledane stvarne CI snimke polaznog prikaza: mobilne zalihe, tablet dashboard u tamnoj temi, desktop detalj proizvoda i mobilni katalog. Završne snimke i ponovno mjerenje bilježe se nakon CI retesta.
+Ručno su pregledane stvarne CI snimke polaznog prikaza: mobilne zalihe, tablet dashboard u tamnoj temi, desktop detalj proizvoda i mobilni katalog. Nakon popravka: **0/104 horizontalnih prelijevanja i 0 pageerror događaja**. [Retest metrika](qa-evidence/retest-layout-metrics.json). Pregledano je svih osam kontaktnih listova (svaka stranica u sve četiri širine i obje teme), uz dodatni pregled punih snimki mobilnih zaliha, tablet dashboarda, desktop proizvoda i tablet grafa/tablice napretka. Popravljeni dugi nazivi ostaju potpuno vidljivi, aktivna navigacija prati podstranice, a nutritivna tablica ostaje u svom spremniku.
 
 Glavna paleta foreground/background, foreground/surface, muted/background, muted/surface i tekst primarnog gumba provjerena je u obje teme s pragom 4,5:1. To je ograničena provjera tekstualnih boja prema [W3C SC 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), a ne tvrdnja o punoj WCAG usklađenosti. Vizualno se dodatno pregledavaju poravnanje, prelamanje, razmaci, oznake obrazaca, čitljivost i tablice.
 
@@ -40,7 +40,7 @@ Glavna paleta foreground/background, foreground/surface, muted/background, muted
 | ID | Kritičnost | Reprodukcija i dokaz | Popravak / ponovna provjera |
 | --- | --- | --- | --- |
 | QA-01 | **Medium** | Proizvod iz OCR-a s nepoznatim vlaknima → Uredi proizvod → promijeni samo naziv → prazna vlakna blokiraju spremanje. Novi dnevnički snapshot koristi numeričku nulu bez informacije o nepoznatom vlaknu. Polazni regresijski test vraća „Unesite količinu ili nutritivnu vrijednost.” | Vlakna su neobavezna; prazan unos čuva `fiberKnown=false` i procjenu. Novi snapshot čuva oznaku, `calculatedFiberCenti` ostaje `null`; promjena kataloga ne mijenja povijest. Regresijski testovi uređivanja i povijesti prolaze lokalno. |
-| QA-02 | **Medium** | Unijeti naziv s 110 uzastopnih znakova, marku od 100 i kategoriju od 60 znakova. Otvoriti dashboard, zalihe i detalj proizvoda. Na 375 px dokument proizvoda raste na 2280 px, a na desktopu na 3716 px. Dokazi: donje snimke i 22 zapisa u baseline metrici. | `minmax(0,…)`, minimalne širine grid/flex elemenata, prelamanje oznaka i dugog teksta; tablet dashboard prelazi u jedan stupac. Bez promjene boja, tipografije ili osnovne strukture. Retest cijele matrice u tijeku. |
+| QA-02 | **Medium** | Unijeti naziv s 110 uzastopnih znakova, marku od 100 i kategoriju od 60 znakova. Otvoriti dashboard, zalihe i detalj proizvoda. Na 375 px dokument proizvoda raste na 2280 px, a na desktopu na 3716 px. Dokazi: donje snimke i 22 zapisa u baseline metrici. | `minmax(0,…)`, minimalne širine grid/flex elemenata, prelamanje oznaka i dugog teksta; tablet dashboard prelazi u jedan stupac. Bez promjene boja, tipografije ili osnovne strukture. Retest matrice prolazi bez prelijevanja. |
 | QA-03 | **Medium** | Spremiti „Đumbir”; u zalihama tražiti „dumbir”. Polazni test vraća prazan niz iako proizvod postoji. | Zalihe koriste istu hrvatsku normalizaciju kao katalog, uključujući đ/d. Regresijski test prolazi. |
 | QA-04 | **Medium** | Ručni proizvod prihvaća `4006381333932` iako kontrolna znamenka nije valjana; takav proizvod nije moguće pronaći valjanom barkod pretragom. Prijašnja validacija provjeravala je samo broj znamenki. | Ručni obrazac i katalog koriste zajedničku validaciju EAN/UPC/GTIN kontrolne znamenke. Prazan barkod ostaje dopušten. Negativni regresijski test prolazi; postojeći testni barkodovi zamijenjeni su valjanima. Stvarni ranije pohranjeni barkodovi nisu mijenjani. |
 | QA-05 | **Low** | POST `/api/reference-import` bez sesije, kao običan korisnik ili s neprihvaćenim Originom vraća 400 umjesto 401/403. Polazni E2E bilježi tri stvarna odgovora 400. Ovlasti su i prije blokirale upis. | Odvojena autentifikacija, autorizacija i CSRF provjera s 401/403, 413 za prevelik body i 400 za neispravan paket. Sirove interne greške ne vraćaju se klijentu. E2E provjerava nepromijenjene brojeve osobnih i referentnih zapisa te valjani idempotentni uvoz kroz UI. |
@@ -55,6 +55,14 @@ Glavna paleta foreground/background, foreground/surface, muted/background, muted
 ![Tablet dashboard prije popravka](qa-evidence/before-768-dark-dashboard.png)
 
 ![Desktop detalj proizvoda prije popravka](qa-evidence/before-1440-light-product.png)
+
+### Dokazi poslije popravka
+
+![Mobilne zalihe poslije popravka](qa-evidence/after-375-light-inventory.png)
+
+![Tablet dashboard poslije popravka](qa-evidence/after-768-dark-dashboard.png)
+
+![Desktop detalj poslije popravka](qa-evidence/after-1440-light-product.png)
 
 ## Automatizirani korisnički scenarij
 
@@ -86,6 +94,8 @@ Lokalno: Windows x64, Node 24.22.1; [JSON rezultata](qa-evidence/local-performan
 | Zalihe uz 2000 proizvoda / 10000 serija | 10 | 96,73 ms | 114,52 ms |
 
 Import paketa: 1314,30 ms. RSS procesa nakon seedanja i mjerenja: 426,4 MB; to nije mjerenje vršnog RAM-a produkcijskog poslužitelja. Brojevi uključuju stvarnu SQLite/Prisma obradu; nisu usporedivi s fizičkim ZimaOS serverom bez dodatnih mjerenja.
+
+[Linux CI benchmark](qa-evidence/linux-performance.json) dodatno mjeri p95 pretrage 2,65 ms u praznom kućanstvu / 5,32 ms uz veliki osobni katalog te p95 pregleda zaliha 127,41 ms. To potvrđuje isti obrazac skaliranja uz drukčije runner okruženje.
 
 Polazni Linux browser OCR nad generiranom testnom slikom etikete: **1492 ms** od uploada do popunjenog obrasca. Ovo nije procjena vremena ni točnosti OCR-a za proizvoljne fotografije s mobitela. `layout-metrics.json` bilježi stvarno vrijeme navigacije/do spremnog UI-ja; katalog uključuje i pretragu. Hladni start, Lighthouse score i mreža stvarnog kućnog servera nisu izmjereni.
 

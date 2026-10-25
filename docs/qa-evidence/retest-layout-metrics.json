@@ -1,0 +1,1045 @@
+{
+  "metrics": [
+    {
+      "label": "dashboard",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 175,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "inventory",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 132,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "new-product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 150,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 127,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "edit-product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 101,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "catalog",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 245,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "diary",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 137,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "progress",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 126,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "settings",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 116,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "catalog-settings",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 167,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "recipes-planned",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 98,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "plan-planned",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 116,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "shopping-planned",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 109,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "dashboard",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 114,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "inventory",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 156,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "new-product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 115,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 130,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "edit-product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 128,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "catalog",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 361,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "diary",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 138,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "progress",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 116,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "settings",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 127,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "catalog-settings",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 150,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "recipes-planned",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 115,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "plan-planned",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 101,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "shopping-planned",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 126,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "dashboard",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 102,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "inventory",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 90,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "new-product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 115,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 124,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "edit-product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 111,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "catalog",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 240,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "diary",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 111,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "progress",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 145,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "settings",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 100,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "catalog-settings",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 162,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "recipes-planned",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 95,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "plan-planned",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 98,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "shopping-planned",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 111,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "dashboard",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 127,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "inventory",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 112,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "new-product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 154,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 138,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "edit-product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 190,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "catalog",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 341,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "diary",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 207,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "progress",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 194,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "settings",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 215,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "catalog-settings",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 212,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "recipes-planned",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 157,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "plan-planned",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 160,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "shopping-planned",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 179,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "dashboard",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 149,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "inventory",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 153,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "new-product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 173,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 210,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "edit-product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 143,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "catalog",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 323,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "diary",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 153,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "progress",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 173,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "settings",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 161,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "catalog-settings",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 316,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "recipes-planned",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 139,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "plan-planned",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 139,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "shopping-planned",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 143,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "dashboard",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 207,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "inventory",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 159,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "new-product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 151,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 190,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "edit-product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 179,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "catalog",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 317,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "diary",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 207,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "progress",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 205,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "settings",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 184,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "catalog-settings",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 290,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "recipes-planned",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 159,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "plan-planned",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 179,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "shopping-planned",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 156,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "dashboard",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 135,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "inventory",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 124,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "new-product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 149,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 128,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "edit-product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 130,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "catalog",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 238,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "diary",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 124,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "progress",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 131,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "settings",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 111,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "catalog-settings",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 228,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "recipes-planned",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 119,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "plan-planned",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 108,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "shopping-planned",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 107,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light"
+    },
+    {
+      "label": "dashboard",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 133,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "inventory",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 150,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "new-product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 128,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 133,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "edit-product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 126,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "catalog",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 236,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "diary",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 128,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "progress",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 163,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "settings",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 109,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "catalog-settings",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 178,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "recipes-planned",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 114,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "plan-planned",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 100,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    },
+    {
+      "label": "shopping-planned",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 128,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark"
+    }
+  ],
+  "pageErrors": []
+}
