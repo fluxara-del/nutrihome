@@ -2,8 +2,6 @@ import { notFound } from "next/navigation";
 import { Construction } from "lucide-react";
 import { requireUser } from "@/lib/session";
 const modules: Record<string, { title: string; phase: number; description: string }> = {
-  recepti: { title: "Recepti", phase: 4, description: "Vlastiti recepti, točne količine sastojaka i izračun hranjivih vrijednosti po porciji." },
-  plan: { title: "Tjedni plan", phase: 4, description: "Sedmodnevni plan s pregledom ciljeva, zaliha i ograničenja, uz tvoje konačno odobrenje." },
   kupnja: { title: "Kupnja", phase: 5, description: "Objedinjeni sastojci iz plana umanjeni za raspoložive zalihe i potvrda kupljenih namirnica." },
 };
 export default async function Section({ params }: { params: Promise<{ section: string }> }) {

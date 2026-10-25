@@ -51,10 +51,10 @@ async function snapshotFor(tx: Tx, actor: InventoryActor, sourceType: "PRODUCT" 
     if (!product) throw new NutritionError("Proizvod nije dostupan u ovom kućanstvu.");
     return productSnapshot(product);
   }
-  const recipe = await tx.recipe.findFirst({ where: { id: sourceId, householdId: actor.householdId }, include: { ingredients: { orderBy: { id: "asc" }, include: { product: true } } } });
+  const recipe = await tx.recipe.findFirst({ where: { id: sourceId, householdId: actor.householdId, archived: false }, include: { ingredients: { orderBy: { id: "asc" }, include: { product: true } } } });
   if (!recipe || !recipe.ingredients.length || recipe.ingredients.some(item => item.product.householdId !== actor.householdId)) throw new NutritionError("Recept nije dostupan ili nema ispravne sastojke.");
   return { kind: "recipe", version: 1, sourceId: recipe.id, name: recipe.title, state: recipe.cookingMinutes > 0 ? "COOKED" : "RAW", servingsMilli: recipe.servingsMilli,
-    estimated: recipe.ingredients.some(item => item.product.estimatedNutrition), ingredients: recipe.ingredients.map(item => ({ productId: item.productId, quantityMg: item.quantityMg, product: productSnapshot(item.product) })) } satisfies RecipeSnapshot;
+    estimated: recipe.ingredients.some(item => item.product.estimatedNutrition || !item.product.fiberKnown) || recipe.cookingMinutes > 0 && recipe.ingredients.some(item => item.product.nutritionState === "RAW"), ingredients: recipe.ingredients.map(item => ({ productId: item.productId, quantityMg: item.quantityMg, product: productSnapshot(item.product) })) } satisfies RecipeSnapshot;
 }
 export async function saveFoodLog(client: PrismaClient, actor: InventoryActor, raw: unknown, today = localDate()) {
   const input = parseNutrition(foodSchema, raw); actualDate(input.date, today);

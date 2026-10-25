@@ -11,7 +11,7 @@ export async function loadDiary(date: string) {
   const [logs, products, recipes, savedSettings] = await Promise.all([
     db().foodLog.findMany({ where: { userId: user.id, date }, orderBy: [{ createdAt: "desc" }, { id: "desc" }], include: { product: { select: { name: true } }, recipe: { select: { title: true } } } }),
     db().foodProduct.findMany({ where: { householdId: user.householdId }, orderBy: { name: "asc" }, select: { id: true, name: true, nutritionState: true, estimatedNutrition: true, densityMgPerMl: true, pieceWeightMg: true } }),
-    db().recipe.findMany({ where: { householdId: user.householdId, ingredients: { some: {} } }, orderBy: { title: "asc" }, select: { id: true, title: true, cookingMinutes: true, ingredients: { select: { product: { select: { householdId: true, estimatedNutrition: true } } } } } }),
+    db().recipe.findMany({ where: { householdId: user.householdId, archived: false, ingredients: { some: {} } }, orderBy: { title: "asc" }, select: { id: true, title: true, cookingMinutes: true, ingredients: { select: { product: { select: { householdId: true, estimatedNutrition: true } } } } } }),
     db().userSettings.findUnique({ where: { userId: user.id } }),
   ]);
   const sources = [

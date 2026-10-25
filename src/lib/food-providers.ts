@@ -59,7 +59,7 @@ export function usdaDraft(raw: unknown): FoodDraft | null {
 }
 export function localDraft(p: FoodProduct): FoodDraft {
   const draft = emptyDraft("LOCAL");
-  Object.assign(draft, { name: p.name, brand: p.brand ?? "", barcode: p.barcode ?? "", localId: p.id, reference: p.id, basis: "PER_100_G",
+  Object.assign(draft, { name: p.name, brand: p.brand ?? "", barcode: p.barcode ?? "", localId: p.id, reference: p.id, basis: "PER_100_G", preparation: p.nutritionState, category: p.category,
     calories: String(p.caloriesPer100gCenti / 100), protein: String(p.proteinPer100gCenti / 100), carbs: String(p.carbsPer100gCenti / 100), fat: String(p.fatPer100gCenti / 100), fiber: p.fiberKnown ? String(p.fiberPer100gCenti / 100) : "",
     packageQuantity: p.packageQuantityMilli === null ? "" : String(p.packageQuantityMilli / 1000), packageUnit: p.packageUnit ?? "G" });
   return draft;
@@ -77,7 +77,7 @@ async function json(url: URL, init: RequestInit, fetcher: ProviderFetch) {
   } finally { await reader.cancel().catch(() => {}); }
   return object(JSON.parse(Buffer.concat(chunks).toString("utf8")));
 }
-export async function searchFoods(client: PrismaClient, actor: InventoryActor, raw: string, barcode = false, options: { fetcher?: ProviderFetch; usdaKey?: string; localOnly?: boolean; external?: boolean; page?: number } = {}) {
+export async function searchFoods(client: PrismaClient, actor: InventoryActor, raw: string, barcode = false, options: { fetcher?: ProviderFetch; usdaKey?: string; localOnly?: boolean; ownedOnly?: boolean; external?: boolean; page?: number } = {}) {
   if (!await client.user.findFirst({ where: { id: actor.userId, householdId: actor.householdId }, select: { id: true } })) throw new InventoryError("Pristup nije dopušten.");
   const q = raw.trim();
   if (q.length < 2 || q.length > 100 || /[\x00-\x1f]/.test(q)) throw new InventoryError("Upiši naziv duljine 2–100 znakova.");
@@ -88,11 +88,11 @@ export async function searchFoods(client: PrismaClient, actor: InventoryActor, r
   const tokens = normalizeFoodName(q).split(/\s+/).slice(0,12);
   const conditions = tokens.map(token=>Prisma.sql`instr(${haystack}, ${token}) > 0`);
   const local = await client.$queryRaw<FoodProduct[]>(Prisma.sql`SELECT * FROM FoodProduct WHERE householdId = ${actor.householdId} AND ${barcode ? Prisma.sql`barcode = ${q}` : Prisma.join(conditions," AND ")} ORDER BY name, id LIMIT 21 OFFSET ${page*20}`);
-  const references = barcode ? [] : await searchReference(client,q,page);
+  const references = barcode || options.ownedOnly ? [] : await searchReference(client,q,page);
   const hasMore = local.length>20 || references.length>20;
   const results = [...local.slice(0,20).map(localDraft),...references.slice(0,20).map(referenceDraft)];
   const warnings: string[] = [], fetcher = options.fetcher ?? fetch;
-  if (options.localOnly || !options.external || barcode && local.length > 0 || page > 0) return { results, warnings, hasMore };
+  if (options.ownedOnly || options.localOnly || !options.external || barcode && local.length > 0 || page > 0) return { results, warnings, hasMore };
   const key = options.usdaKey ?? process.env.USDA_API_KEY;
   await Promise.all([
     (async () => {

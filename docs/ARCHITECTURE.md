@@ -143,10 +143,37 @@ aktualni dan i trenutno stanje inventara, čak i kod starijeg prehrambenog datum
 Jedno mjerenje težine dopušteno je po korisniku i datumu. Datumi stvarne prehrane i
 težine ne mogu biti u budućnosti. Ciljevi su isključivo korisnički odabrani i potvrđeni;
 prikaz starijih dana uspoređuje se s trenutačnim ciljevima, ne s izmišljenim povijesnim
-ciljem. Podaci o preferencijama i budžetu zasad se samo spremaju za budući planer.
+ciljem. Preferencije, isključeni pojmovi i budžet koriste se u planneru faze 4.
 
 Trendovi koriste lokalne kalendarske datume Zagreba. Prosjeci prehrane obuhvaćaju samo
 dane s zapisima i prikazuju broj tih dana; bez zapisa nije isto što i stvarni unos 0.
 Težina se prikazuje za 7 ili 30 dana, s pomičnim prosjekom dostupnih mjerenja u posljednjih
 7 kalendarskih dana. Čitanje uključuje dodatnih 6 ranijih dana za točan prosjek prvih
 vidljivih točaka. Graf povezuje stvarna mjerenja i ne stvara vrijednosti za prazne dane.
+
+## Recepti i planner (faza 4)
+
+Recepti su zajednički kućanstvu. Sve njihove promjene provjeravaju pripadnost svih
+sastojaka, eksplicitnu potvrdu, verziju i idempotentni ključ zahtjeva. Arhiviranje
+ne briše reference ni povijesne nutritivne snimke. Izračun po porciji koristi ukupne
+mase sastojaka podijeljene brojem porcija; izmjereni gubitak pri kuhanju nije poznat.
+
+Jedan plan po kućanstvu i ponedjeljku sadrži 7 × mealCount (1–12) obroka. Autor
+može mijenjati nacrt i odobriti ga. Ostali članovi kućanstva imaju pregled. Novi
+planovi čuvaju autora, verziju, potvrđene ciljeve i nutritivnu snimku svakog obroka.
+Promjena kataloga/recepta/ciljeva blokira odobrenje zastarjelog nacrta. Odobrenje
+sprema izvještaj u istoj transakciji; daljnje promjene traže izričito ponovno otvaranje.
+Stari planovi bez autora/snimki ostaju sačuvani i dostupni samo za pregled metapodataka.
+
+Planner je lokalna deterministička heuristika, bez AI poziva i bez tvrdnje o
+optimalnosti. Koristi aktivne recepte (najviše 500), konačan skup porcija, ciljeve,
+raznolikost, oznake, FEFO raspoloživost na planirani dan te ručne procjene €/kg.
+Prehrambene oznake su korisnički provjerene. Isključenja se odnose na normalizirani
+naziv/marku/kategoriju sastojka; nisu automatska analiza alergena. Nepodržana
+preferencija i nedostatak prikladnih recepata zaustavljaju generiranje.
+
+Izvještaj obračunava zalihu kumulativno kroz tjedan na kopiji podataka. Budžet je
+procjena dodatnog manjka; nepoznate cijene ostaju null. PlanningPrice zadržava verziju
+i nakon čišćenja cijene, radi sprječavanja prepisivanja iz zastarjelog obrasca.
+Planiranje i odobrenje nikada ne pišu InventoryBatch, InventoryTransaction, FoodLog
+ili ShoppingListItem. Kupnja i zakazani poslovi pripadaju fazi 5.
