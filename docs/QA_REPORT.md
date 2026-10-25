@@ -33,7 +33,7 @@ Prije popravka pronađena su **22 horizontalna prelijevanja**, uz **0 JavaScript
 
 Ručno su pregledane stvarne CI snimke polaznog prikaza: mobilne zalihe, tablet dashboard u tamnoj temi, desktop detalj proizvoda i mobilni katalog. Nakon popravka: **0/104 horizontalnih prelijevanja i 0 pageerror događaja**. [Retest metrika](qa-evidence/retest-layout-metrics.json). Pregledano je svih osam kontaktnih listova (svaka stranica u sve četiri širine i obje teme), uz dodatni pregled punih snimki mobilnih zaliha, tablet dashboarda, desktop proizvoda i tablet grafa/tablice napretka. Popravljeni dugi nazivi ostaju potpuno vidljivi, aktivna navigacija prati podstranice, a nutritivna tablica ostaje u svom spremniku.
 
-Glavna paleta foreground/background, foreground/surface, muted/background, muted/surface i tekst primarnog gumba provjerena je u obje teme s pragom 4,5:1. To je ograničena provjera tekstualnih boja prema [W3C SC 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), a ne tvrdnja o punoj WCAG usklađenosti. Vizualno se dodatno pregledavaju poravnanje, prelamanje, razmaci, oznake obrazaca, čitljivost i tablice.
+Glavna paleta foreground/background, foreground/surface, muted/background, muted/surface i tekst primarnog gumba provjerena je u obje teme s pragom 4,5:1. Stabilizirani DOM mjerni podaci dodatno obuhvaćaju **360 uzoraka vidljivih tekstualnih gumba/linkova-gumba**, s najmanjim izmjerenim omjerom **7,25:1**; nije pronađen uzorak ispod 4,5:1. CSS prijelazi se dovršavaju prije mjerenja kako se prijelazne boje ne bi tretirale kao trajni kontrast. To je ograničena provjera tekstualnih boja prema [W3C SC 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), a ne tvrdnja o punoj WCAG usklađenosti. Vizualno se dodatno pregledavaju poravnanje, prelamanje, razmaci, oznake obrazaca, čitljivost i tablice.
 
 ## Pronađeni problemi, reprodukcija i popravci
 
@@ -47,6 +47,8 @@ Glavna paleta foreground/background, foreground/surface, muted/background, muted
 | QA-06 | **Low** | Na `/zalihe/[id]`, `/zalihe/[id]/uredi` i postavkama kataloga niti jedna stavka navigacije nema `aria-current=page`. Reprodukcija iz polaznog JSX-a i snimke detalja proizvoda. | Aktivna sekcija prepoznaje podputanje. Matrica dodatno provjerava odgovarajući aktivni link. |
 | QA-07 | **Low** | Produkcijski CSP dopušta `'unsafe-eval'`, iako nije potreban standardnom produkcijskom toku. Dokaz: polazni `next.config.ts`. Nije otkriven izvršiv XSS. | Dopuštenje ostaje samo u development modu; produkcijski browser test provjerava zaglavlje. `'unsafe-inline'` ostaje zbog postojeće Next.js integracije; nonce strategija je buduće ojačavanje, ne dovršeni zahvat ovog audita. |
 | QA-08 | **Low**, otvoreno | `listInventory` učitava sve osobne proizvode i aktivne serije prije filtriranja/paginacije. Dashboard kroz `loadDiary` učitava i izbore proizvoda/recepata koji mu nisu potrebni. Dokaz: kod i benchmark s 2000 proizvoda/10000 serija. | Lokalni p95 pregleda zaliha oko 115 ms; nije blokator za tipično kućanstvo. SQL agregacija/paginacija i uži dashboard loader ostaju preporučena optimizacija za znatno veće osobne kataloge; nisu uvedeni bez potrebe za promjenom postojeće FEFO/filter semantike. |
+
+| QA-09 | **Low**, testni harness | U [CI 40145813574](https://github.com/fluxara-del/nutrihome/actions/runs/40145813574) Windows ima 114 uspjeha i jedan timeout u pripremi referentne testne baze (beforeEach, zadani hook limit 10 s); isti suite prolazi u prethodnim Windows ciklusima i na Linuxu. Ovo je zabilježen problem pouzdanosti testne pripreme, ne dokaz greške aplikacije. Točan uzrok usporavanja runnera nije utvrđen. | Broj istodobnih Vitest radnika ograničen na 2, hook limit na 30 s; aplikacijski timeouti nisu promijenjeni. Lokalno 115/115 ponovno prolazi, konačni Windows retest u tijeku. |
 
 ### Dokazi prije popravka
 
@@ -83,7 +85,7 @@ Polazni auditni scenarij imao je pogrešan testni selektor „Spremi mjerenje”
 
 ## Performanse
 
-[Reproducibilni benchmark](../scripts/qa-performance.ts): `npm run qa:performance`. Stvara i uklanja vlastitu testnu bazu, bez korištenja DATABASE_URL korisničke instalacije. Stvarni USDA katalog: 4748 zapisa; sintetički test opterećenja: 2000 osobnih proizvoda i 10000 serija (bez izmišljanja novih nutritivnih referenci).
+[Reproducibilni benchmark](https://github.com/fluxara-del/nutrihome/blob/qa-comprehensive-audit/scripts/qa-performance.ts): `npm run qa:performance`. Stvara i uklanja vlastitu testnu bazu, bez korištenja DATABASE_URL korisničke instalacije. Stvarni USDA katalog: 4748 zapisa; sintetički test opterećenja: 2000 osobnih proizvoda i 10000 serija (bez izmišljanja novih nutritivnih referenci).
 
 Lokalno: Windows x64, Node 24.22.1; [JSON rezultata](qa-evidence/local-performance.json).
 
@@ -105,7 +107,9 @@ Polazni Linux browser OCR nad generiranom testnom slikom etikete: **1492 ms** od
 - Dvije nove regresije prije popravka: 2 neuspjeha / 17 uspjeha u inventory suiteu (nepoznata vlakna i đ/d).
 - Polazni CI browser audit: **16 uspjeha, 3 neuspjeha**: vizualna matrica, pogrešan selektor novog scenarija i statusi import API-ja. [CI 40144595203](https://github.com/fluxara-del/nutrihome/actions/runs/40144595203).
 - Nakon popravaka lokalno: **115/115 unit/integration/kontrast testova**, TypeScript prolazi.
-- Linux/Windows završni build, browser matrica i Docker: konačni status bilježi se po dovršetku CI-ja.
+- [CI 40145394283](https://github.com/fluxara-del/nutrihome/actions/runs/40145394283), commit `41a2624936c2728b7ab0a7b8ad3ae5b16d978bfc`: **Linux i Windows — 115/115 testova, build, TypeScript, benchmark i 19/19 browser E2E prolaze**. Potvrđen je i valjani idempotentni import kroz administratorski UI te produkcijski CSP bez unsafe-eval.
+- **Linux Docker build i smoke prolaze**, uključujući očuvanje podataka nakon rekreiranja kontejnera i pretragu stvarnog kataloga u kontejneru s `--network none`.
+- Linux dorada auditnih snimki prolazi; Windows je zabilježio navedeni QA-09 hook timeout: [CI 40145813574](https://github.com/fluxara-del/nutrihome/actions/runs/40145813574), commit `f627d8e4deb41b819861fd368699dfb1578d8297`. Dorada završava konačne CSS prijelaze prije mjerenja/snime da boje usred animacije ne budu pogrešno protumačene kao trajni problem kontrasta. Aplikacijski kod nije mijenjan.
 
 ## Ograničenja i otvorene stavke
 
@@ -115,4 +119,4 @@ Fizički mobitel, stvarni stražnji fotoaparat, stvarna fotografija etikete, Saf
 
 Otvoren ostaje QA-08 (Low, skaliranje velikih osobnih zaliha), a nonce CSP strategija, puni WCAG audit i stvarni uređaji zasebne su buduće provjere. Devet referentnih zapisa ima ručno preveden hrvatski naziv; ostali koriste engleski naziv i hrvatsku kategoriju — poznato ograničenje sadržaja faze 3.6, ne nova regresija. Recepti/plan/kupnja ostaju planirane faze 4/5. Ne proglašava se da su implementirani.
 
-Konačna preporuka za pregled/spajanje dopunjuje se nakon retesta; QA grana se ne spaja automatski u razvojnu granu ili `main`.
+Konačna preporuka za pregled/spajanje dopunjuje se nakon retesta QA-09; QA grana se ne spaja automatski u razvojnu granu ili `main`.
