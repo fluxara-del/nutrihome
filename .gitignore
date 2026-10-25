@@ -29,3 +29,6 @@ secrets/
 *.jks
 *.keystore
 .npmrc
+
+# Isolated QA benchmark output
+qa-results/

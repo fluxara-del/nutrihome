@@ -15,5 +15,5 @@ export const sections = [
 ];
 export function Navigation() {
   const path = usePathname();
-  return <nav className="nav" aria-label="Glavni izbornik">{sections.map(({ href, label, icon: Icon }) => <Link key={href} href={href} aria-current={path === href ? "page" : undefined}><Icon size={20} aria-hidden="true"/>{label}</Link>)}</nav>;
+  return <nav className="nav" aria-label="Glavni izbornik">{sections.map(({ href, label, icon: Icon }) => <Link key={href} href={href} aria-current={(path === href || href !== "/" && path.startsWith(`${href}/`)) ? "page" : undefined}><Icon size={20} aria-hidden="true"/>{label}</Link>)}</nav>;
 }
