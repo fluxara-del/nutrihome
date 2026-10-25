@@ -19,7 +19,7 @@ export function PlanningForm({
 }) {
   const [state, action, pending] = useActionState(planningAction, {});
   return (
-    <form action={action} className="form-stack">
+    <form action={action} className="form-stack" aria-label={label}>
       <input type="hidden" name="operation" value={operation} />
       <input type="hidden" name="requestKey" value={requestKey} />
       {Object.entries(values).map(([k, v]) => (
@@ -314,5 +314,27 @@ export function RecipeForm({
         </p>
       )}
     </PlanningForm>
+  );
+}
+
+export function PlanningSelect({
+  name,
+  label,
+  value,
+  children,
+}: {
+  name: string;
+  label: string;
+  value: string;
+  children: ReactNode;
+}) {
+  const id = useId();
+  return (
+    <div>
+      <label htmlFor={id}>{label}</label>
+      <select id={id} name={name} defaultValue={value}>
+        {children}
+      </select>
+    </div>
   );
 }

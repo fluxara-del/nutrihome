@@ -5,7 +5,7 @@ import { db } from "@/lib/db";
 import { nextWeekStart, addDays } from "@/lib/calendar";
 import { loadPlan } from "@/lib/meal-plans";
 import { mealLabel } from "@/lib/plan-engine";
-import { PlanningField, PlanningForm } from "../planning-forms";
+import { PlanningField, PlanningForm, PlanningSelect } from "../planning-forms";
 export const metadata = { title: "Tjedni plan" };
 export default async function Planner({
   searchParams,
@@ -275,19 +275,17 @@ export default async function Planner({
                                   requestKey={randomUUID()}
                                   label="Spremi obrok"
                                 >
-                                  <label>
-                                    Recept
-                                    <select
-                                      name="recipeId"
-                                      defaultValue={m.recipeId}
-                                    >
-                                      {recipes.map((r) => (
-                                        <option key={r.id} value={r.id}>
-                                          {r.title}
-                                        </option>
-                                      ))}
-                                    </select>
-                                  </label>
+                                  <PlanningSelect
+                                    name="recipeId"
+                                    label="Recept"
+                                    value={m.recipeId}
+                                  >
+                                    {recipes.map((r) => (
+                                      <option key={r.id} value={r.id}>
+                                        {r.title}
+                                      </option>
+                                    ))}
+                                  </PlanningSelect>
                                   <PlanningField
                                     name="servings"
                                     label="Broj porcija"

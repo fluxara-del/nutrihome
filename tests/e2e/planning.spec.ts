@@ -178,10 +178,13 @@ test("phase 4: recipes, portions, diary snapshot, prices, seven-day planning, ap
     await meal
       .getByText("Zamijeni recept ili prilagodi porciju", { exact: true })
       .click();
-    const mealForm = meal.locator("form").filter({
-      has: page.getByRole("button", { name: "Spremi obrok", exact: true }),
+    const mealForm = meal.getByRole("form", {
+      name: "Spremi obrok",
+      exact: true,
     });
-    await mealForm.getByLabel("Recept", { exact: true }).selectOption(second);
+    await mealForm
+      .getByRole("combobox", { name: "Recept", exact: true })
+      .selectOption(second);
     await mealForm.getByLabel("Broj porcija", { exact: true }).fill("1.25");
     await mealForm.getByLabel("Potvrđujem promjenu", { exact: true }).check();
     await meal
@@ -190,11 +193,9 @@ test("phase 4: recipes, portions, diary snapshot, prices, seven-day planning, ap
     await expect(
       meal.getByText("1.25 porcija · 3 min", { exact: true }),
     ).toBeVisible();
-    const regenerate = meal.locator("form").filter({
-      has: page.getByRole("button", {
-        name: "Predloži drugi obrok",
-        exact: true,
-      }),
+    const regenerate = meal.getByRole("form", {
+      name: "Predloži drugi obrok",
+      exact: true,
     });
     await regenerate.getByLabel("Potvrđujem promjenu", { exact: true }).check();
     await regenerate
