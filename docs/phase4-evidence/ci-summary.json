@@ -1,0 +1,57 @@
+{
+  "repository": "fluxara-del/nutrihome",
+  "pullRequest": 3,
+  "validatedApplicationCommit": "3e9c0250b696bce94336fd8581f367722944b26b",
+  "ciRun": "https://github.com/fluxara-del/nutrihome/actions/runs/40205818180",
+  "linux": {
+    "unitIntegrationTests": 132,
+    "typecheck": "passed",
+    "productionBuild": "passed",
+    "playwrightTests": 20,
+    "performance": "passed",
+    "dockerSmoke": "passed",
+    "planPersistenceAfterRestart": "passed",
+    "planReadWithoutNetwork": "passed"
+  },
+  "windows": {
+    "unitIntegrationTests": 132,
+    "typecheck": "passed",
+    "productionBuild": "passed",
+    "playwrightTests": 20,
+    "performance": "passed"
+  },
+  "visual": {
+    "newPages": 6,
+    "viewports": [
+      [
+        375,
+        812
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1440,
+        900
+      ]
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "combinationsPerOS": 48,
+    "documentOverflowAssertions": "passed",
+    "manualReview": "Representative screenshots of all six new pages, both themes and four widths; additional Windows mobile recipe detail reviewed"
+  },
+  "limits": [
+    "No physical mobile device or ZimaOS installation tested",
+    "Local Windows sandbox production build blocked by Turbopack child-process restriction",
+    "Planner is heuristic; budget uses user-entered estimates",
+    "Documentation-only evidence commit follows validated application commit"
+  ]
+}

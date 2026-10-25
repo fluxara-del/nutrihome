@@ -1,0 +1,3157 @@
+{
+  "metrics": [
+    {
+      "label": "dashboard",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 170,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": []
+    },
+    {
+      "label": "inventory",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 109,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Dodaj proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Pretraži",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Otvori proizvod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "label": "new-product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 142,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 145,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Uredi proizvod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj seriju",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Potvrdi potrošnju",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "edit-product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 127,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "catalog",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 335,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Pretraži namirnice",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Skeniraj barkod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Ručni unos",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "label": "diary",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 138,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži dan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Dodaj u dnevnik",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "progress",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 148,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži razdoblje",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "10-25 · 81,25 kg",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(232, 240, 231)"
+        },
+        {
+          "text": "Dodaj mjerenje",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "settings",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 147,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi ciljeve",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "catalog-settings",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 241,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Ažuriraj iz lokalne datoteke",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "recipes",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 106,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Pretraži",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "plan",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 97,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži tjedan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Izradi sedmodnevni plan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "shopping-planned",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 66,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "light",
+      "buttons": []
+    },
+    {
+      "label": "dashboard",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 97,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": []
+    },
+    {
+      "label": "inventory",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 98,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Dodaj proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Pretraži",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Otvori proizvod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        }
+      ]
+    },
+    {
+      "label": "new-product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 67,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 95,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Uredi proizvod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj seriju",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Potvrdi potrošnju",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "edit-product",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 83,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "catalog",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 234,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Pretraži namirnice",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Skeniraj barkod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Ručni unos",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        }
+      ]
+    },
+    {
+      "label": "diary",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 107,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži dan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Dodaj u dnevnik",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "progress",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 91,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži razdoblje",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "10-25 · 81,25 kg",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(48, 72, 56)"
+        },
+        {
+          "text": "Dodaj mjerenje",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "settings",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 92,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi ciljeve",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "catalog-settings",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 156,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Ažuriraj iz lokalne datoteke",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "recipes",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 84,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Pretraži",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "plan",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 89,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži tjedan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Izradi sedmodnevni plan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "shopping-planned",
+      "height": 812,
+      "status": 200,
+      "loadAndReadyMs": 74,
+      "width": 375,
+      "scrollWidth": 375,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": []
+    },
+    {
+      "label": "dashboard",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 72,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": []
+    },
+    {
+      "label": "inventory",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 84,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Dodaj proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Pretraži",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Otvori proizvod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "label": "new-product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 68,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 80,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Uredi proizvod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj seriju",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Potvrdi potrošnju",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "edit-product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 77,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "catalog",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 185,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Pretraži namirnice",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Skeniraj barkod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Ručni unos",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "label": "diary",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 91,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži dan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Dodaj u dnevnik",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "progress",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 94,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži razdoblje",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "10-25 · 81,25 kg",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(232, 240, 231)"
+        },
+        {
+          "text": "Dodaj mjerenje",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "settings",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 77,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi ciljeve",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "catalog-settings",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 119,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Ažuriraj iz lokalne datoteke",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "recipes",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 75,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Pretraži",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "plan",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 73,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži tjedan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Izradi sedmodnevni plan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "shopping-planned",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 81,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "light",
+      "buttons": []
+    },
+    {
+      "label": "dashboard",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 87,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": []
+    },
+    {
+      "label": "inventory",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 88,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Dodaj proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Pretraži",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Otvori proizvod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        }
+      ]
+    },
+    {
+      "label": "new-product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 110,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 106,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Uredi proizvod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj seriju",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Potvrdi potrošnju",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "edit-product",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 73,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "catalog",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 189,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Pretraži namirnice",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Skeniraj barkod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Ručni unos",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        }
+      ]
+    },
+    {
+      "label": "diary",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 120,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži dan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Dodaj u dnevnik",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "progress",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 133,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži razdoblje",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "10-25 · 81,25 kg",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(48, 72, 56)"
+        },
+        {
+          "text": "Dodaj mjerenje",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "settings",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 87,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi ciljeve",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "catalog-settings",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 136,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Ažuriraj iz lokalne datoteke",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "recipes",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 92,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Pretraži",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "plan",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 88,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži tjedan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Izradi sedmodnevni plan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "shopping-planned",
+      "height": 844,
+      "status": 200,
+      "loadAndReadyMs": 88,
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": []
+    },
+    {
+      "label": "dashboard",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 83,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": []
+    },
+    {
+      "label": "inventory",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 86,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Dodaj proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Pretraži",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Otvori proizvod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "label": "new-product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 110,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 110,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Uredi proizvod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj seriju",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Potvrdi potrošnju",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "edit-product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 82,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "catalog",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 201,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Pretraži namirnice",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Skeniraj barkod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Ručni unos",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "label": "diary",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 108,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži dan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Dodaj u dnevnik",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "progress",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 113,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži razdoblje",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "10-25 · 81,25 kg",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(232, 240, 231)"
+        },
+        {
+          "text": "Dodaj mjerenje",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "settings",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 93,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi ciljeve",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "catalog-settings",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 119,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Ažuriraj iz lokalne datoteke",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "recipes",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 105,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Pretraži",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "plan",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 86,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži tjedan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Izradi sedmodnevni plan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "shopping-planned",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 85,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "light",
+      "buttons": []
+    },
+    {
+      "label": "dashboard",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 100,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": []
+    },
+    {
+      "label": "inventory",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 121,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Dodaj proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Pretraži",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Otvori proizvod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        }
+      ]
+    },
+    {
+      "label": "new-product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 120,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 110,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Uredi proizvod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj seriju",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Potvrdi potrošnju",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "edit-product",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 106,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "catalog",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 210,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Pretraži namirnice",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Skeniraj barkod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Ručni unos",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        }
+      ]
+    },
+    {
+      "label": "diary",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 110,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži dan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Dodaj u dnevnik",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "progress",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 138,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži razdoblje",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "10-25 · 81,25 kg",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(48, 72, 56)"
+        },
+        {
+          "text": "Dodaj mjerenje",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "settings",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 113,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi ciljeve",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "catalog-settings",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 118,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Ažuriraj iz lokalne datoteke",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "recipes",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 100,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Pretraži",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "plan",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 82,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži tjedan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Izradi sedmodnevni plan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "shopping-planned",
+      "height": 1024,
+      "status": 200,
+      "loadAndReadyMs": 81,
+      "width": 768,
+      "scrollWidth": 768,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": []
+    },
+    {
+      "label": "dashboard",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 89,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": []
+    },
+    {
+      "label": "inventory",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 89,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Dodaj proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Pretraži",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Otvori proizvod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "label": "new-product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 118,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 105,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Uredi proizvod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj seriju",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Potvrdi potrošnju",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "edit-product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 92,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "catalog",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 175,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Pretraži namirnice",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Skeniraj barkod",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Ručni unos",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "label": "diary",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 97,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži dan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Dodaj u dnevnik",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "progress",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 100,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži razdoblje",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "10-25 · 81,25 kg",
+          "color": "rgb(38, 60, 49)",
+          "background": "rgb(232, 240, 231)"
+        },
+        {
+          "text": "Dodaj mjerenje",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "settings",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 93,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Spremi ciljeve",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "catalog-settings",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 123,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Ažuriraj iz lokalne datoteke",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "recipes",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 88,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Pretraži",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "plan",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 92,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": [
+        {
+          "text": "Prikaži tjedan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        },
+        {
+          "text": "Izradi sedmodnevni plan",
+          "color": "rgb(245, 246, 242)",
+          "background": "rgb(40, 91, 67)"
+        }
+      ]
+    },
+    {
+      "label": "shopping-planned",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 92,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "light",
+      "buttons": []
+    },
+    {
+      "label": "dashboard",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 111,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": []
+    },
+    {
+      "label": "inventory",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 101,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Dodaj proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Pretraži",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Otvori proizvod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        }
+      ]
+    },
+    {
+      "label": "new-product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 133,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 107,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Uredi proizvod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj seriju",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Potvrdi potrošnju",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "edit-product",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 107,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi proizvod",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "catalog",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 202,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Pretraži namirnice",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Skeniraj barkod",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Ručni unos",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u moj katalog",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u dnevnik prehrane",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        },
+        {
+          "text": "Dodaj u zalihe",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(32, 46, 38)"
+        }
+      ]
+    },
+    {
+      "label": "diary",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 118,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži dan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Dodaj u dnevnik",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "progress",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 138,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži razdoblje",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "10-25 · 81,25 kg",
+          "color": "rgb(229, 238, 230)",
+          "background": "rgb(48, 72, 56)"
+        },
+        {
+          "text": "Dodaj mjerenje",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "settings",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 97,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Spremi ciljeve",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "catalog-settings",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 122,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Ažuriraj iz lokalne datoteke",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "recipes",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 91,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Pretraži",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "plan",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 99,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": [
+        {
+          "text": "Prikaži tjedan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        },
+        {
+          "text": "Izradi sedmodnevni plan",
+          "color": "rgb(21, 32, 27)",
+          "background": "rgb(155, 206, 168)"
+        }
+      ]
+    },
+    {
+      "label": "shopping-planned",
+      "height": 900,
+      "status": 200,
+      "loadAndReadyMs": 98,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "theme": "dark",
+      "buttons": []
+    }
+  ],
+  "pageErrors": []
+}

@@ -123,3 +123,23 @@ Otvoren ostaje QA-08 (Low, skaliranje velikih osobnih zaliha), a nonce CSP strat
 **Završni status:** [CI 40146138891](https://github.com/fluxara-del/nutrihome/actions/runs/40146138891), commit `5447747445cda1d2fe8e5bafd2ecda91950c93b4`, prolazi na Linuxu i Windowsu: **115/115 testova, produkcijski build, TypeScript, benchmark i 19/19 browser E2E**. Linux Docker build/smoke također prolazi. Ovaj završni commit izvješća mijenja samo dokumentirane rezultate.
 
 U testiranom opsegu nema poznatih neriješenih **Critical** ili **High** grešaka. Ispravljeno je sedam aplikacijskih nalaza (QA-01–QA-07) i ublažen problem testne pripreme QA-09. Otvoren je QA-08 (**Low**). Preporuka je pregledati i prihvatiti QA popravke uz navedena ograničenja i svjesno prihvaćanje Low duga skaliranja. QA grana nije automatski spojena u razvojnu granu ili `main`.
+
+## Dodatak: faza 4 — recepti i planner
+
+Ostatak ovog izvještaja opisuje prethodni audit faze 3.6 i PR #2. Faza 4 dodaje novu
+kontroliranu migraciju; prethodna tvrdnja da audit nije dodavao migracije odnosi se
+isključivo na taj raniji audit.
+
+PR #3 (`phase-4-recipes-meal-planner` → `phase-3-6-local-food-db`) uvodi stvarne stranice
+recepata, novog recepta, detalja, uređivanja, tjednog plana i procijenjenih cijena.
+Recepti i plan više nisu budući moduli u QA matrici; Kupnja ostaje faza 5.
+
+Izolirani Linux/Windows CI 40205818180 za kod `3e9c0250b696bce94336fd8581f367722944b26b`
+prošao je 132 unit/integracijska testa, TypeScript, produkcijski build, 20 browser
+testova, benchmark; Linux je prošao i Docker smoke. Svih 48 novih kombinacija stranice/veličine/teme
+nema horizontalno prelijevanje dokumenta. Reprezentativne snimke ručno su pregledane.
+Docker je potvrdio nepromijenjene zalihe i dnevnik nakon planiranja/odobrenja,
+idempotentnost, očuvanje snimki nakon rekreiranja kontejnera i čitanje bez mreže.
+
+Detaljan popis problema, kritičnosti, reprodukcije, dokaza, popravaka i ograničenja:
+[PHASE_4_REVIEW.md](PHASE_4_REVIEW.md). Korisnička baza nije dirana. Oba CI posla završila su uspješno. Fizički mobilni uređaj i ZimaOS nisu testirani.
